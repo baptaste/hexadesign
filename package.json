@@ -1,5 +1,5 @@
 {
-  "name": "react-kickstarter",
+  "name": "hexadesign",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
@@ -52,6 +52,9 @@
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
-    "react-router-dom": "^6.0.2"
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.0.2",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9"
   }
 }

@@ -6,17 +6,18 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  padding-left: 5rem;
+  padding-left: 10rem;
   background: black;
   opacity: 0;
   overflow-y: hidden;
   // transform: translateX(-100%);
   transition: opacity 300ms ease-in-out;
-  z-index: 1;
+  // z-index: 1;
+  z-index: -1;
 }
 
 .nav {
-  width: 80%;
+  width: 60%;
   height: 80%;
   justify-content: space-around;
   color: white;
@@ -27,6 +28,7 @@
     text-transform: uppercase;
     font-weight: 500;
     opacity: 0;
+    transition: opacity 300ms ease-in-out !important;
 
     &:hover {
       opacity: 1 !important;
@@ -44,4 +46,23 @@
 .open {
   // transform: translateX(0);
   opacity: 1;
+  z-index: 1;
+}
+
+.previewer {
+  width: 40%;
+  height: 80%;
+  // border: 1px solid white;
+}
+.previewImg {
+  width: 55%;
+  object-fit: contain;
+  opacity: 0;
+  // transform: translateX(-100px);
+  transition: opacity 400ms ease-in-out;
+}
+
+.revealed {
+  opacity: .7;
+  // transform: translateX(0);
 }

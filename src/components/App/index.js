@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-import Header from 'src/components/Header'
+import Header from 'src/containers/Header'
 import Home from 'src/components/Home'
-import Nav from 'src/components/Nav'
+import Nav from 'src/containers/Nav'
+import Category from 'src/containers/Category';
 
 const App = () => {
   // test with hooks before redux
@@ -15,20 +16,21 @@ const App = () => {
   // }
   // console.log('datas :', getHexaDatas());
 
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenuOpen = () => setMenuOpen(!menuOpen)
+  // const [menuOpen, setMenuOpen] = useState(false);
+  // const toggleMenuOpen = () => setMenuOpen(!menuOpen)
 
   return (
     <BrowserRouter>
     <div className="app">
-      <Nav menuOpen={menuOpen} toggleMenuOpen={toggleMenuOpen} />
+      <Nav />
       <Routes>
         <Route exact path='/'
           element={<>
-          <Header menuOpen={menuOpen} toggleMenuOpen={toggleMenuOpen} />
+          <Header />
           <Home />
           </>}
         />
+        <Route exact path='/category/:id' element={<Category />} />
       </Routes>
     </div>
     </BrowserRouter>

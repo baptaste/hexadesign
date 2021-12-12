@@ -5,12 +5,24 @@
 @use 'anims';
 
 
+  // @font-face {
+  //   font-family: 'Roboto';
+  //   src: url('../assets/fonts/Roboto-Regular.ttf');
+  // }
+
+  // body {
+  //   font-family: 'Roboto', sans-serif;
+  //   background: white;
+  // }
+
+
 html::-webkit-scrollbar {
   width: 0px;
 }
 
 body {
-  font-family: 'Boska', serif;
+  // font-family: 'Boska', serif;
+  font-family: 'Readex Pro', sans-serif;
   background: white;
 }
 
@@ -20,13 +32,3 @@ body {
   color: black;
 }
 
-/*
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
