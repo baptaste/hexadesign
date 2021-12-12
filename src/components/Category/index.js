@@ -1,35 +1,39 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import History from 'src/containers/History';
+
 import './category.scss'
 
-const Category = ({ toggleMenuOpen, category, clearCategory }) => {
+const Category = ({ category, projects }) => {
 
-  let navigate = useNavigate();
-  function goToHome() {
-    navigate('/');
-    clearCategory();
-  }
-  function goBackWithMenu() {
-    navigate(-1);
-    toggleMenuOpen();
-    clearCategory();
-  }
+  console.log('projects in category component :', projects);
 
   return (
     <div className='categoryWrapper flex-column-around'>
-      <div className='historyWrapper'>
-        <div className='historySelects flex-center-around'>
-          <button type='button' className='normal-size buttonReset text-bold' onClick={goToHome}>
-            Accueil <i className='fas fa-angle-right' />
-          </button>
-          <button type='button' className='normal-size buttonReset text-bold' onClick={goBackWithMenu}>
-            Menu <i className='fas fa-angle-right' />
-          </button>
-          <p className='normal-size text-bold'>{category}</p>
-        </div>
-      </div>
-      <section className='category'>
-          Category Page
+      <History />
+
+      <h1 className='categoryTitle medium-size text-bold'>{category}</h1>
+      <section className='category flex-start-between flex-wrap'>
+
+          {projects.map(({ id, attributes }) => (
+            <article key={id} className='projectPreview flex-column-around'>
+              <p className='medium-size text-bold'>{attributes.name}</p>
+
+              <div className='projectThemes'>
+                {attributes.themes.data && attributes.themes.data.map((theme) => (
+                  <span key={theme.id}>{theme.attributes.name}</span>
+                ))}
+              </div>
+
+              <div className='projectImg'>
+                {attributes.image.data && attributes.image.data.map((img) => (
+                  //  <img src={img.attributes.formats.small.url} alt={attributes.name} key={img.id}/>
+                  <img src={'http://localhost:1337' + img.attributes.formats.small.url} alt={attributes.name} key={img.id} />
+                ))}
+              </div>
+
+              {/* <p className='normal-size'>{attributes.description}</p> TODO : move it to project page component */}
+            </article>
+          ))}
       </section>
     </div>
   );

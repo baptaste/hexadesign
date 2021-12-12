@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 // local
 import store from 'src/store';
-import App from 'src/components/App';
+import App from 'src/containers/App';
 
 const rootReactElement = (
   <Provider store={store}>

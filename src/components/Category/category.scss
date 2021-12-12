@@ -1,21 +1,25 @@
 .categoryWrapper {
   z-index: 1000;
   width: 90%;
-  height: 100vh;
+  // height: 100vh;
   padding: 3rem 1rem;
   margin: 0 auto;
   // background: #c0ffee;
-}
-
-.historyWrapper {
-  width: 100%;
-}
-.historySelects {
-  width: 20%;
 }
 
 .category {
   width: 100%;
   height: 90%;
   background: #ccc;
+}
+
+.categoryTitle {
+  margin-bottom: 2rem;
+}
+
+.projectPreview {
+  height: 35rem;
+  margin-bottom: 3rem;
+  background: black;
+  color: white;
 }

@@ -49,6 +49,18 @@
   align-items: center;
 }
 
+.flex-start-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.flex-start-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .text-bold {
   font-weight: bold;
 }

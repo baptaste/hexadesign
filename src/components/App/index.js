@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from 'src/containers/Header'
@@ -7,11 +7,15 @@ import Home from 'src/components/Home'
 import Nav from 'src/containers/Nav'
 import Category from 'src/containers/Category';
 
-const App = () => {
+const App = ({ getAllProjects }) => {
+
+  useEffect(() => {
+    getAllProjects();
+  }, [])
   // test with hooks before redux
 
   // async function getHexaDatas() {
-  //   const datas = await axios.get('http://localhost:1337/api/projects')
+  //   const datas = await axios.get('http://localhost:1337/api/projects?populate=categories,themes,image')
   //   return datas
   // }
   // console.log('datas :', getHexaDatas());
