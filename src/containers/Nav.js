@@ -5,6 +5,7 @@ const mapStateToProps = (state) => ({
   menuOpen: state.settings.menuOpen,
   navLinkHovered: state.settings.navLinkHovered,
   navImgSrc: state.settings.navImgSrc,
+  categories: state.categories.categories,
 });
 
 const mapDispatchToProps = (dispatch) => ({

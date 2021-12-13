@@ -2,7 +2,6 @@ export const initialState = {
   menuOpen: false,
   navLinkHovered: false,
   navImgSrc: null,
-  category: '',
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,16 +22,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         navLinkHovered: false,
         navImgSrc: null,
-      }
-    case 'SET_CATEGORY':
-      return {
-        ...state,
-        category: action.category,
-      }
-    case 'CLEAR_CATEGORY':
-      return {
-        ...state,
-        category: '',
       }
     default:
       return state;

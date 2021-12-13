@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import History from 'src/containers/History';
 
 import './category.scss'
 
-const Category = ({ category, projects }) => {
+const Category = ({ category, allProjects, getCategoryProjects, categoryProjects }) => {
+  useEffect(() => {
+    getCategoryProjects();
+  }, [])
 
-  console.log('projects in category component :', projects);
+  // console.log('projects in category component :', projects);
 
   return (
     <div className='categoryWrapper flex-column-around'>
@@ -14,7 +17,7 @@ const Category = ({ category, projects }) => {
       <h1 className='categoryTitle medium-size text-bold'>{category}</h1>
       <section className='category flex-start-between flex-wrap'>
 
-          {projects.map(({ id, attributes }) => (
+          {categoryProjects !== [] && categoryProjects.map(({ id, attributes }) => (
             <article key={id} className='projectPreview flex-column-around'>
               <p className='medium-size text-bold'>{attributes.name}</p>
 
@@ -27,7 +30,7 @@ const Category = ({ category, projects }) => {
               <div className='projectImg'>
                 {attributes.image.data && attributes.image.data.map((img) => (
                   //  <img src={img.attributes.formats.small.url} alt={attributes.name} key={img.id}/>
-                  <img src={'http://localhost:1337' + img.attributes.formats.small.url} alt={attributes.name} key={img.id} />
+                  <img src={`http://localhost:1337${img.attributes.formats.small.url}`} alt={attributes.name} key={img.id} />
                 ))}
               </div>
 

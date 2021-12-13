@@ -7,15 +7,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  getAllCategories: () => {
+    dispatch({ type: 'GET_ALL_CATEGORIES' })
+  },
   getAllProjects: () => {
     dispatch({ type: 'GET_ALL_PROJECTS' })
-  }
-  // toggleMenuOpen: () => {
-  //   dispatch({ type: 'SET_MENU_OPEN' });
-  // },
-  // clearCategory: () => {
-  //   dispatch({ type: 'CLEAR_CATEGORY' })
-  // }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

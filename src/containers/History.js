@@ -3,7 +3,7 @@ import History from 'src/components/History';
 
 const mapStateToProps = (state) => ({
   menuOpen: state.settings.menuOpen,
-  category: state.settings.category,
+  category: state.categories.category,
 });
 
 const mapDispatchToProps = (dispatch) => ({

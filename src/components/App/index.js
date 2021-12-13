@@ -7,21 +7,12 @@ import Home from 'src/components/Home'
 import Nav from 'src/containers/Nav'
 import Category from 'src/containers/Category';
 
-const App = ({ getAllProjects }) => {
+const App = ({ getAllCategories, getAllProjects }) => {
 
   useEffect(() => {
+    getAllCategories();
     getAllProjects();
   }, [])
-  // test with hooks before redux
-
-  // async function getHexaDatas() {
-  //   const datas = await axios.get('http://localhost:1337/api/projects?populate=categories,themes,image')
-  //   return datas
-  // }
-  // console.log('datas :', getHexaDatas());
-
-  // const [menuOpen, setMenuOpen] = useState(false);
-  // const toggleMenuOpen = () => setMenuOpen(!menuOpen)
 
   return (
     <BrowserRouter>

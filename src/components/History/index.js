@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import './history.scss'
 
-const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProjects }) => {
+const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProjects, clearCategory }) => {
 
   let navigate = useNavigate();
   function goToHome() {

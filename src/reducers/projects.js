@@ -1,5 +1,6 @@
 export const initialState = {
-  projects: [],
+  allProjects: [],
+  categoryProjects: [],
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -7,17 +8,27 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_ALL_PROJECTS_SUCCESS':
       return {
         ...state,
-        projects: action.projects,
+        allProjects: action.allProjects,
       }
     case 'GET_ALL_PROJECTS_ERROR':
       return {
         ...state,
-        projects: [],
+        allProjects: [],
       }
     case 'CLEAR_PROJECTS':
       return {
         ...state,
-        projects: [],
+        allProjects: [],
+      }
+    case 'GET_CATEGORY_PROJECTS_SUCCESS':
+      return {
+        ...state,
+        categoryProjects: action.categoryProjects,
+      }
+    case 'GET_CATEGORY_PROJECTS_ERROR':
+      return {
+        ...state,
+        categoryProjects: [],
       }
     default:
       return state;

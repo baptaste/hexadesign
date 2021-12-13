@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <main className='home'>
       <p>MAIN</p>
+      {/* TODO : get all projects here */}
     </main>
   );
 }
