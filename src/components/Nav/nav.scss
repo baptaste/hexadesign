@@ -12,17 +12,18 @@
   opacity: 0;
   overflow-y: hidden;
   // transform: translateX(-100%);
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
   // z-index: 1;
   z-index: -1;
 }
 
 .nav {
+  position: relative;
   width: 60%;
   height: 80%;
   justify-content: space-around;
   color: white;
-  transition: opacity 300ms ease-in-out, width 300ms ease-in-out, height 300ms ease-in-out;
+  transition: opacity 500ms ease-in-out, width 300ms ease-in-out, height 300ms ease-in-out;
   // border: 1px solid white;
 
   .navLink {
@@ -45,10 +46,27 @@
   }
 }
 
+// .notClickable {
+//   &:hover {
+//     opacity: 0 !important;
+//   }
+// }
+
 .open {
   // transform: translateX(0);
   opacity: 1;
   z-index: 1;
+}
+
+.bait {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 90vh;
+  // background: salmon;
+  border: 1px solid white;
+  z-index: 1000;
 }
 
 .previewer {
@@ -61,7 +79,7 @@
   object-fit: contain;
   opacity: 0;
   // transform: translateX(-100px);
-  transition: opacity 400ms ease-in-out;
+  transition: opacity 600ms ease-in-out;
 }
 
 .revealed {

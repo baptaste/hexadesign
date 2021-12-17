@@ -51,6 +51,7 @@
     "axios": "^0.24.0",
     "prop-types": "*",
     "react": "*",
+    "react-content-loader": "^6.1.0",
     "react-dom": "*",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",

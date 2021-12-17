@@ -22,11 +22,13 @@ const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProj
     <div className='historyWrapper'>
       <div className='historySelects flex-center-around'>
         <button type='button' className='normal-size buttonReset text-bold' onClick={goToHome}>
-          Accueil <i className='fas fa-angle-right' />
+          Accueil
         </button>
+        <i className='fas fa-angle-right pointer' onClick={goToHome} />
         <button type='button' className='normal-size buttonReset text-bold' onClick={goBackWithMenu}>
-          Menu <i className='fas fa-angle-right' />
+          Menu
         </button>
+        <i className='fas fa-angle-right pointer' onClick={goBackWithMenu} />
         <p className='normal-size text-bold'>{category}</p>
       </div>
     </div>

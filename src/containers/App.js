@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
 
-const mapStateToProps = (state) => ({
-  // menuOpen: state.settings.menuOpen,
-  // category: state.settings.category,
-});
+// const mapStateToProps = (state) => ({
+
+// });
 
 const mapDispatchToProps = (dispatch) => ({
   getAllCategories: () => {
@@ -15,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

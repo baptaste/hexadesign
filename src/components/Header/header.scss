@@ -4,6 +4,11 @@
   width: 300px;
   height: auto;
   // opacity: .7;
+  transition: opacity 250ms ease-in-out;
+}
+
+.lowOpacity {
+  opacity: .1;
 }
 
 .header {

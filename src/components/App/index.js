@@ -1,7 +1,5 @@
-
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from 'src/containers/Header'
 import Home from 'src/components/Home'
 import Nav from 'src/containers/Nav'
@@ -12,10 +10,14 @@ const App = ({ getAllCategories, getAllProjects }) => {
   useEffect(() => {
     getAllCategories();
     getAllProjects();
-  }, [])
+  }, []);
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [location]);
 
   return (
-    <BrowserRouter>
     <div className="app">
       <Nav />
       <Routes>
@@ -28,7 +30,6 @@ const App = ({ getAllCategories, getAllProjects }) => {
         <Route exact path='/category/:id' element={<Category />} />
       </Routes>
     </div>
-    </BrowserRouter>
   );
 };
 

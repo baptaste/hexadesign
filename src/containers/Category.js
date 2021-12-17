@@ -5,6 +5,7 @@ const mapStateToProps = (state) => ({
   category: state.categories.category,
   allProjects: state.projects.allProjects,
   categoryProjects: state.projects.categoryProjects,
+  loading: state.settings.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
