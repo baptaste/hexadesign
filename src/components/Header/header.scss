@@ -4,11 +4,7 @@
   width: 300px;
   height: auto;
   // opacity: .7;
-  transition: opacity 250ms ease-in-out;
-}
-
-.lowOpacity {
-  opacity: .1;
+  transition: opacity 150ms ease-in-out;
 }
 
 .header {
@@ -20,6 +16,18 @@
 
 .banner {
   padding-top: 3rem;
-  height: 70%;
+  height: 90%;
   z-index: -1;
+}
+
+.page-title {
+  > span {
+    display: block;
+    overflow: hidden;
+
+    > span {
+      display: block;
+      animation: spanFadeIn 500ms ease forwards;
+    }
+  }
 }

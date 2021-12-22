@@ -8,8 +8,10 @@ const Header = ({ menuOpen }) => {
   return (
     <header className='header flex-column'>
       <div className='banner flex-column-around'>
-        <img src={hexaLogo} className={menuOpen ? 'hexaLogo lowOpacity' : 'hexaLogo'} />
-        <h1 className='page-title'>HexaDesign</h1>
+        <img src={hexaLogo} className={menuOpen ? 'hexaLogo no-opacity' : 'hexaLogo'} />
+        <h1 className='page-title'>
+          <span><span className={menuOpen ? 'no-opacity' : ''}>HexaDesign</span></span>
+        </h1>
       </div>
       <MenuToggler />
     </header>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Category from 'src/components/Category';
+import Slider from 'src/components/Slider';
 
 const mapStateToProps = (state) => ({
   category: state.categories.category,
@@ -23,9 +23,6 @@ const mapDispatchToProps = (dispatch) => ({
   hideProjectInfo: () => {
     dispatch({ type: 'HIDE_PROJECT_INFO' })
   },
-  revealAllSliderPreviews: () => {
-    dispatch({ type: 'REVEAL_ALL_SLIDER_PREVIEWS' })
-  }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, mapDispatchToProps)(Slider);

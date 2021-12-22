@@ -5,11 +5,11 @@ import Home from 'src/components/Home'
 import Nav from 'src/containers/Nav'
 import Category from 'src/containers/Category';
 
-const App = ({ getAllCategories, getAllProjects }) => {
-
+const App = ({ getAllCategories, getAllProjects, getAllThemes, setCurrentPath }) => {
   useEffect(() => {
     getAllCategories();
     getAllProjects();
+    getAllThemes();
   }, []);
 
   const location = useLocation();

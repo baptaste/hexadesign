@@ -4,6 +4,7 @@ import History from 'src/components/History';
 const mapStateToProps = (state) => ({
   menuOpen: state.settings.menuOpen,
   category: state.categories.category,
+  categories: state.categories.categories,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,9 +14,9 @@ const mapDispatchToProps = (dispatch) => ({
   clearCategory: () => {
     dispatch({ type: 'CLEAR_CATEGORY' })
   },
-  clearProjects: () => {
-    dispatch({ type: 'CLEAR_PROJECTS' })
-  },
+  // clearProjects: () => {
+  //   dispatch({ type: 'CLEAR_PROJECTS' })
+  // },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(History);

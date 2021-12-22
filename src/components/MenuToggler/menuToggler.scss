@@ -48,11 +48,6 @@
 .rotated {
   background: white;
 
-  &:hover {
-    width: 1rem;
-    transition: width 200ms ease;
-  }
-
   &:first-child {
     top: 0.1rem;
     left: 0;

@@ -3,12 +3,12 @@
 @use 'fonts';
 @use 'main';
 @use 'anims';
+@use 'colors';
 
-
-  // @font-face {
-  //   font-family: 'Roboto';
-  //   src: url('../assets/fonts/Roboto-Regular.ttf');
-  // }
+  @font-face {
+    font-family: 'Poppins', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap');
+  }
 
   // body {
   //   font-family: 'Roboto', sans-serif;
@@ -20,9 +20,13 @@ html::-webkit-scrollbar {
   width: 0px;
 }
 
+*, body {
+  // font-family: 'Readex Pro', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   // font-family: 'Boska', serif;
-  font-family: 'Readex Pro', sans-serif;
   background: white;
 }
 
@@ -31,4 +35,5 @@ body {
   height: 100%;
   color: black;
 }
+
 

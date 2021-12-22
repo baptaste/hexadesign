@@ -16,9 +16,9 @@ const Nav = ({
   categories }) => {
 
   function handleNavLinkClick(path, name) {
-    if (path.includes('/category/')) {
-      setCategory(name);
-    }
+    // if (path.includes('/category/')) {
+    //   setCategory(name);
+    // }
     hideNavLinkImg();
     toggleMenuOpen();
   }
@@ -44,7 +44,7 @@ const Nav = ({
             <NavLink
               to={attributes.path}
               key={id}
-              className={baitActive ? 'navLink notClickable big-size text-bold' : 'navLink big-size text-bold'}
+              className={baitActive ? 'navLink notClickable extra-size text-bold' : 'navLink extra-size text-bold'}
               onMouseEnter={() => revealNavLinkImg(attributes.image.data[0].attributes.url)}
               onMouseLeave={hideNavLinkImg}
               onClick={() => handleNavLinkClick(attributes.path, attributes.name)}

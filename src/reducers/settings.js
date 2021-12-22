@@ -1,6 +1,6 @@
 export const initialState = {
   menuOpen: false,
-  baitActive: false,
+  // baitActive: false,
   navLinkHovered: false,
   navImgSrc: '',
   loading: false,
@@ -41,6 +41,8 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_ALL_CATEGORIES_SUCCESS':
       return { ...state, loading: false }
     case 'GET_ALL_CATEGORIES_ERROR':
+      return { ...state, loading: false }
+    case 'GET_ALL_THEMES_SUCCESS':
       return { ...state, loading: false }
     default:
       return state;

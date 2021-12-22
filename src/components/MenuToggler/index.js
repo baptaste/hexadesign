@@ -5,7 +5,7 @@ const MenuToggler = ({ toggleMenuOpen, menuOpen }) => {
   return (
     <div className='menuTogglerWrapper flex-center'>
       <button
-      className='menuToggler buttonReset flex-column'
+      className='menuToggler button-reset flex-column'
       onClick={toggleMenuOpen}>
         <div className={menuOpen ? 'line rotated' : 'line'}></div>
         <div className={menuOpen ? 'line rotated' : 'line'}></div>

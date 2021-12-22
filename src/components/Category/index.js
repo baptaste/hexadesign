@@ -1,47 +1,49 @@
 import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 import History from 'src/containers/History';
+import Slider from 'src/containers/Slider';
+import { getCategoryName, getCategoryThemes } from 'src/utils';
 
-import Loader from 'src/components/Loader';
 import './category.scss'
 
-const Category = ({ category, allProjects, getCategoryProjects, categoryProjects, loading }) => {
+const Category = ({
+  categories,
+  getCategoryProjects,
+  categoryProjects,
+  revealAllSliderPreviews,
+  allSliderPreviewsRevealed }) => {
+
   useEffect(() => {
     getCategoryProjects();
-  }, [])
+  }, []);
 
-  const projectPreviewWidth = 608,
-        projectPreviewHeight = 640;
+  const location = useLocation();
+  let categoryName = getCategoryName(categoryName, categories, location.pathname);
+  let currentThemes = getCategoryThemes(currentThemes, categoryProjects);
+  let baseProjectPreviewShow = 4;
 
   return (
     <div className='categoryWrapper flex-column-around'>
       <History />
+      <h1 className='categoryTitle medium-size text-bold'>{categoryName}.</h1>
+      {currentThemes[0] !== undefined && (
+         <div className='categoryThemes flex'>
+         {currentThemes.map((theme, i) => <span key={i} className='themeTag radius-5 small-size pointer'>{theme}</span>)}
+       </div>
+      )}
 
-      <h1 className='categoryTitle medium-size text-bold'>{category}</h1>
-      <section className='category flex-start-between flex-wrap'>
-        {/* {loading && <Loader />} */}
-          {categoryProjects !== [] && categoryProjects.map(({ id, attributes }) => (
-
-            <article key={id} className='projectPreview flex-column-around'>
-              {loading ? <Loader width={projectPreviewWidth} height={projectPreviewHeight} /> : (
-                <>
-              <p className='medium-size text-bold'>{attributes.name}</p>
-              <div className='projectThemes'>
-                {attributes.themes.data && attributes.themes.data.map((theme) => (
-                  <span key={theme.id}>{theme.attributes.name}</span>
-                ))}
-              </div>
-              <div className='projectImg'>
-                {attributes.image.data && attributes.image.data.map((img) => (
-                  <img src={`http://localhost:1337${img.attributes.formats.small.url}`} alt={attributes.name} key={img.id} />
-                ))}
-              </div>
-              </>
-              )}
-            </article>
-
-          ))}
-          {/* <p className='normal-size'>{attributes.description}</p> TODO : move it to project page component */}
-      </section>
+      <div className='sliderContainer flex-center-between'>
+        <Slider />
+        {!allSliderPreviewsRevealed && categoryProjects.length > baseProjectPreviewShow && (
+          <button
+            type='button'
+            className='previewSlider-btn button-reset pointer medium-size'
+            onClick={revealAllSliderPreviews}>
+              {categoryProjects.length - baseProjectPreviewShow}+
+          </button>
+        )}
+      </div>
+      {/* <p className='normal-size'>{attributes.description}</p> TODO : move it to project page component */}
     </div>
   );
 }

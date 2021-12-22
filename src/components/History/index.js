@@ -1,35 +1,40 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { getCategoryName } from 'src/utils';
 
 import './history.scss'
 
-const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProjects, clearCategory }) => {
+const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProjects, clearCategory, categories }) => {
 
-  let navigate = useNavigate();
+  const navigate = useNavigate(),
+        location = useLocation();
+
   function goToHome() {
     navigate('/');
-    clearCategory();
+    // clearCategory();
     // clearProjects();
   }
   function goBackWithMenu() {
     navigate(-1);
     toggleMenuOpen();
-    clearCategory();
+    // clearCategory();
     // clearProjects();
   }
+
+  let categoryName = getCategoryName(categoryName, categories, location.pathname);
 
   return (
     <div className='historyWrapper'>
       <div className='historySelects flex-center-around'>
-        <button type='button' className='normal-size buttonReset text-bold' onClick={goToHome}>
+        <button type='button' className='normal-size button-reset text-bold' onClick={goToHome}>
           Accueil
         </button>
         <i className='fas fa-angle-right pointer' onClick={goToHome} />
-        <button type='button' className='normal-size buttonReset text-bold' onClick={goBackWithMenu}>
+        <button type='button' className='normal-size button-reset text-bold' onClick={goBackWithMenu}>
           Menu
         </button>
         <i className='fas fa-angle-right pointer' onClick={goBackWithMenu} />
-        <p className='normal-size text-bold'>{category}</p>
+        <p className='normal-size text-bold current-page'>{categoryName}</p>
       </div>
     </div>
   );

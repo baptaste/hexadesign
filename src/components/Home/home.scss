@@ -2,6 +2,17 @@
 
 .home {
   width: 100%;
-  height: 100vh;
-  background: salmon;
+  min-height: 100vh;
+}
+
+.service {
+  width: 25rem;
+  height: 20rem;
+  border: 1px solid black;
+
+  .serviceDesc {
+    text-align: center;
+    line-height: 1.2;
+    padding: 1rem 1.5rem;
+  }
 }

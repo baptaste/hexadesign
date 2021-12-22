@@ -15,16 +15,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         categories: [],
       }
-    case 'SET_CATEGORY':
-      return {
-        ...state,
-        category: action.category,
-      }
-    case 'CLEAR_CATEGORY':
-      return {
-        ...state,
-        category: '',
-      }
     default:
       return state;
    };

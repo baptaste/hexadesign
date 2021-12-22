@@ -15,34 +15,29 @@ const projectsMiddleware = (store) => (next) => async (action) => {
     }
   }
 
-  //TODO
-  /*
-    faire une action pour filtrer les projects par catégories lors du clic sur un lien dans le menu
-    via state.categories.category récupérée au clic, compararée à la catégorie du project qui porte le même nom
+  if (action.type === 'GET_CATEGORY_PROJECTS') {
+    state.settings.loading = true;
+    let pageURL = window.location.pathname;
 
-    OU
+    try {
+      let projectsData = await axios.get(`${strapi_API_URL}/projects?populate=categories,themes,image`);
+      projectsData = projectsData.data.data;
 
-    récupérer les projects sur la route categories?populate=projects
-  */
+      const filteredProjectsWithURL = projectsData.filter((project) => (
+        // project.attributes.categories.data[0].attributes.name === state.categories.category
+        project.attributes.categories.data[0].attributes.path === pageURL
+      ));
 
-    if (action.type === 'GET_CATEGORY_PROJECTS') {
-      state.settings.loading = true;
-      try {
-        let projectsData = await axios.get(`${strapi_API_URL}/projects?populate=categories,themes,image`);
-        projectsData = projectsData.data.data;
+      const firstProjectData = filteredProjectsWithURL[0];
+      // console.log('firstProjectData : ', firstProjectData);
 
-        const filteredProjects = projectsData.filter((project) => (
-          project.attributes.categories.data[0].attributes.name === state.categories.category
-        ));
-
-        console.log('la catégorie est : ', state.categories.category);
-        console.log('filteredProjects : ', filteredProjects);
-        store.dispatch({ type: 'GET_CATEGORY_PROJECTS_SUCCESS', categoryProjects: filteredProjects});
-      } catch (err) {
-        console.error(err);
-        store.dispatch({ type: 'GET_CATEGORY_PROJECTS_ERROR', error: err });
-      }
+      store.dispatch({ type: 'GET_CATEGORY_PROJECTS_SUCCESS', categoryProjects: filteredProjectsWithURL});
+      store.dispatch({ type: 'REVEAL_FIRST_PROJECT', project: firstProjectData});
+    } catch (err) {
+      console.error(err);
+      store.dispatch({ type: 'GET_CATEGORY_PROJECTS_ERROR', error: err });
     }
+  }
 
   next(action);
 }
