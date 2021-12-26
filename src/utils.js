@@ -6,7 +6,7 @@ export function getCategoryName(emptyField, array, location) {
   //   }
   // })
   array.filter((elem) => {
-    if (elem.attributes.path === location) {
+    if (elem.attributes.path === location || location.includes(elem.attributes.path.concat('','/'))) {
       emptyField = elem.attributes.name
     }
   })
@@ -15,7 +15,7 @@ export function getCategoryName(emptyField, array, location) {
 
 export function getCategoryThemes(newThemes, array) {
     // let currentThemes = [];
-  // let extractedThemesNames = categoryProjects.map((project) => {
+  // let extractedThemesNames = projects.map((project) => {
   //   let theme;
   //   project.attributes.themes.data.forEach((item) => theme = item.attributes.name)
   //   return theme;

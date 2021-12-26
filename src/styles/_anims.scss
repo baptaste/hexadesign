@@ -13,3 +13,32 @@
     transform: translateY(0);
   }
 }
+
+@keyframes pageTransition {
+  /* 1st */
+  // 0% {
+  //   width: 100%;
+  //   transform: translate3d(0, 0, 0);
+  // }
+  // 100% {
+  //   width: 40%;
+  //   transform: translate3d(75%, 0, 0);
+  // }
+    /* 2nd */
+  0% {
+    width: 40%;
+    color: black;
+    transform: translate3d(-80%, 0, 0);
+    z-index: 1000;
+  }
+  50% {
+    width: 60%;
+    transform: translate3d(50%, 0, 0);
+  }
+  100% {
+    width: 40%;
+    color: white;
+    transform: translate3d(75%, 0, 0);
+    z-index: -1;
+  }
+}

@@ -2,9 +2,8 @@ import { connect } from 'react-redux';
 import History from 'src/components/History';
 
 const mapStateToProps = (state) => ({
-  menuOpen: state.settings.menuOpen,
-  category: state.categories.category,
   categories: state.categories.categories,
+  project: state.projects.project,
 });
 
 const mapDispatchToProps = (dispatch) => ({

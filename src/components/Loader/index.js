@@ -2,8 +2,8 @@ import React from 'react';
 import ContentLoader, { Instagram } from "react-content-loader";
 
 const Loader = ({ width, height }) => {
-  console.log('width :', width);
-  console.log('height :', height);
+  // console.log('width :', width);
+  // console.log('height :', height);
 
   return (
     <ContentLoader style={{ width: width, height: height }}>

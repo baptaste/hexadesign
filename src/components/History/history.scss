@@ -3,5 +3,9 @@
   margin-bottom: 3rem;
 }
 .historySelects {
-  width: 20%;
+  width: fit-content;
+
+  > button, > i, > p {
+    padding-right: 1rem;
+  }
 }

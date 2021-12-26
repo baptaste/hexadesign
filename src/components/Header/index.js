@@ -1,6 +1,4 @@
 import React from 'react'
-
-import MenuToggler from 'src/containers/MenuToggler'
 import hexaLogo from 'src/assets/hexadesign-logo.jpg'
 import './header.scss'
 
@@ -13,7 +11,6 @@ const Header = ({ menuOpen }) => {
           <span><span className={menuOpen ? 'no-opacity' : ''}>HexaDesign</span></span>
         </h1>
       </div>
-      <MenuToggler />
     </header>
   );
 }

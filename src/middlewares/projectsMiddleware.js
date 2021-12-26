@@ -31,11 +31,24 @@ const projectsMiddleware = (store) => (next) => async (action) => {
       const firstProjectData = filteredProjectsWithURL[0];
       // console.log('firstProjectData : ', firstProjectData);
 
-      store.dispatch({ type: 'GET_CATEGORY_PROJECTS_SUCCESS', categoryProjects: filteredProjectsWithURL});
+      store.dispatch({ type: 'GET_CATEGORY_PROJECTS_SUCCESS', projects: filteredProjectsWithURL});
       store.dispatch({ type: 'REVEAL_FIRST_PROJECT', project: firstProjectData});
     } catch (err) {
       console.error(err);
       store.dispatch({ type: 'GET_CATEGORY_PROJECTS_ERROR', error: err });
+    }
+  }
+
+  if (action.type === 'GET_PROJECT') {
+    state.settings.loading = true;
+
+    try {
+      const projectData = await axios.get(`${strapi_API_URL}/projects/${action.id}?populate=categories,themes,image`);
+      // console.log('projectData : ', projectData.data.data);
+      store.dispatch({ type: 'GET_PROJECT_SUCCESS', project: projectData.data.data });
+    } catch (err) {
+      console.log(err)
+      store.dispatch({ type: 'GET_PROJECT_ERROR', error: err });
     }
   }
 

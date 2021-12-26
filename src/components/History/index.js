@@ -4,7 +4,7 @@ import { getCategoryName } from 'src/utils';
 
 import './history.scss'
 
-const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProjects, clearCategory, categories }) => {
+const History = ({ categories, project }) => {
 
   const navigate = useNavigate(),
         location = useLocation();
@@ -14,9 +14,8 @@ const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProj
     // clearCategory();
     // clearProjects();
   }
-  function goBackWithMenu() {
+  function goBackToCategory() {
     navigate(-1);
-    toggleMenuOpen();
     // clearCategory();
     // clearProjects();
   }
@@ -30,11 +29,11 @@ const History = ({ toggleMenuOpen, goToHome, goBackWithMenu, category, clearProj
           Accueil
         </button>
         <i className='fas fa-angle-right pointer' onClick={goToHome} />
-        <button type='button' className='normal-size button-reset text-bold' onClick={goBackWithMenu}>
-          Menu
+        <button type='button' className='normal-size button-reset text-bold' onClick={goBackToCategory}>
+          {categoryName}
         </button>
-        <i className='fas fa-angle-right pointer' onClick={goBackWithMenu} />
-        <p className='normal-size text-bold current-page'>{categoryName}</p>
+        <i className='fas fa-angle-right pointer' onClick={goBackToCategory} />
+        <p className='normal-size text-bold current-page'>{project.attributes.name}</p>
       </div>
     </div>
   );

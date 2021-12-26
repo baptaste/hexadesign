@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 const mapStateToProps = (state) => ({
- currentPath: state.settings.currentPath,
+//  categories: state.categories.categories,
 });
 
 const mapDispatchToProps = (dispatch) => ({

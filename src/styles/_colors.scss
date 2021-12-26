@@ -1,5 +1,32 @@
+$primary: white;
+$secondary: black;
+$tertiary: #DE4E15;
+$secondary-hover: hsl(0, 0%, 20%);
+$tertiary-hover: hsl(17, 83%, 40%);
 $current-page: rgba(43, 43, 43, .7);
 
 .current-page {
   color: $current-page;
 }
+
+.main-color {
+  color: $primary;
+}
+.main-background {
+  background: $primary;
+}
+
+.second-color {
+  color: $secondary;
+}
+.second-background {
+  background: $secondary;
+}
+
+.third-color {
+  color: $tertiary;
+}
+.third-background {
+  background: $tertiary;
+}
+

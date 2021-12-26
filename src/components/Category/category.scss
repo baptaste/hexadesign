@@ -1,14 +1,11 @@
 @use 'src/styles/vars.scss';
+@use 'src/styles/colors.scss';
 
 .categoryWrapper {
   z-index: 1000;
   width: 100%;
-  max-width: 1280px;
   height: 100%;
-  padding: 3rem;
-  margin: 0 auto;
   // background: #c0ffee;
-
 }
 
 // .category {
@@ -20,7 +17,7 @@
 // }
 
 .categoryTitle {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   // text-decoration: underline;
 }
 
@@ -28,10 +25,29 @@
   width: 100%;
 
   .themeTag {
-    padding: .5rem 1rem;
-    background-color: hsl(225, 28%, 64%);
+    // position: relative;
+    width: fit-content;
+    height: 2rem;
+    // display: block;
+    // padding: .5rem 1rem;
     color: white;
+    border: 1px solid black;
+    // margin-right: 1.5rem;
+    // background-color: hsl(225, 28%, 64%);
     transition: background-color 200ms ease;
+    z-index: 0;
+
+    &-active {
+      background: colors.$secondary-hover;
+    }
+
+    .themeTagText {
+      margin: 0;
+      padding: 0 1rem;
+      &-active {
+        padding: 0 .5rem 0 1rem;
+      }
+    }
 
     &:first-child {
       margin-right: .5rem;
@@ -42,7 +58,37 @@
     }
 
     &:hover {
-      background-color: hsl(225, 28%, 44%);
+      // background: colors.$tertiary-hover;
+      background: colors.$secondary-hover;
+    }
+
+    .closeFilter-btn {
+      position: relative;
+      width: 2rem;
+      height: 100%;
+      background: white;
+      border: 1px solid black;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+
+      .leftLine {
+        content: '';
+        position: absolute;
+        top: 45%;
+        background: black;
+        width: 20px;
+        height: 1.5px;
+        transform: rotate(150deg);
+      }
+      .rightLine {
+        content: '';
+        position: absolute;
+        top: 45%;
+        background: black;
+        width: 20px;
+        height: 1.5px;
+        transform: rotate(30deg);
+      }
     }
   }
 }

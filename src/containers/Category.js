@@ -4,9 +4,11 @@ import Category from 'src/components/Category';
 const mapStateToProps = (state) => ({
   category: state.categories.category,
   allProjects: state.projects.allProjects,
-  categoryProjects: state.projects.categoryProjects,
+  projects: state.projects.projects,
+  filteredProjects: state.projects.filteredProjects,
   loading: state.settings.loading,
   themes: state.projects.themes,
+  filteredTheme: state.projects.filteredTheme,
   categories: state.categories.categories,
   projectInfoRevealed: state.projects.projectInfoRevealed,
   infoIdRevealed: state.projects.infoIdRevealed,
@@ -25,7 +27,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
   revealAllSliderPreviews: () => {
     dispatch({ type: 'REVEAL_ALL_SLIDER_PREVIEWS' })
-  }
+  },
+  getFilteredProjects: (theme) => {
+    dispatch({ type: 'GET_FILTERED_PROJECTS', theme })
+  },
+  clearFilteredProjects: () => {
+    dispatch({ type: 'CLEAR_FILTERED_PROJECTS' })
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category);

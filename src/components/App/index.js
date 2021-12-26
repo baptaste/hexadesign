@@ -3,9 +3,11 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from 'src/containers/Header'
 import Home from 'src/components/Home'
 import Nav from 'src/containers/Nav'
-import Category from 'src/containers/Category';
+import Category from 'src/containers/Category'
+import MenuToggler from 'src/containers/MenuToggler'
+import Project from 'src/containers/Project'
 
-const App = ({ getAllCategories, getAllProjects, getAllThemes, setCurrentPath }) => {
+const App = ({ getAllCategories, getAllProjects, getAllThemes }) => {
   useEffect(() => {
     getAllCategories();
     getAllProjects();
@@ -20,6 +22,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes, setCurrentPath })
   return (
     <div className="app">
       <Nav />
+      <MenuToggler />
       <Routes>
         <Route exact path='/'
           element={<>
@@ -28,6 +31,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes, setCurrentPath })
           </>}
         />
         <Route exact path='/category/:id' element={<Category />} />
+        <Route exact path='/category/:id/:projectId' element={<Project />} />
       </Routes>
     </div>
   );

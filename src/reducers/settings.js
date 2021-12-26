@@ -44,6 +44,10 @@ const reducer = (state = initialState, action = {}) => {
       return { ...state, loading: false }
     case 'GET_ALL_THEMES_SUCCESS':
       return { ...state, loading: false }
+    case 'GET_PROJECT_SUCCESS':
+      return { ...state, loading: false }
+    case 'GET_PROJECT_ERROR':
+      return { ...state, loading: false }
     default:
       return state;
    };
