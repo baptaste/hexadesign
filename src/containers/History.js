@@ -13,6 +13,12 @@ const mapDispatchToProps = (dispatch) => ({
   clearCategory: () => {
     dispatch({ type: 'CLEAR_CATEGORY' })
   },
+  setLeaving: () => {
+    dispatch({ type: 'SET_LEAVING' })
+  },
+  endLeaving: () => {
+    dispatch({ type: 'END_LEAVING' })
+  }
   // clearProjects: () => {
   //   dispatch({ type: 'CLEAR_PROJECTS' })
   // },

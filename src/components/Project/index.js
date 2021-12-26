@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import MenuToggler from 'src/containers/MenuToggler'
 import History from 'src/containers/History'
-import Transition from 'src/components/Transition'
+import Transition from 'src/containers/Transition'
 import './project.scss'
 
 const Project = ({ getProject, project }) => {

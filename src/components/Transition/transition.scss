@@ -10,14 +10,19 @@
   // padding: 10% 2rem 0;
   // animation: pageTransition 1.5s cubic-bezier(.56,.22,.32,.99) forwards;
   // animation: pageTransition 2s cubic-bezier(.53,0,.32,.99) forwards;
-  // BEST SO FAR
-  animation: pageTransition 2.5s cubic-bezier(.97,.01,.64,1) forwards;
+  /* BEST SO FAR */
+  // animation: transition-In 2.5s cubic-bezier(.97,.01,.64,1) forwards;
+  /* BEST SO FAR */
   // animation: pageTransition 2.5s cubic-bezier(.78,.01,.17,.78) forwards;
   transition:
     transform 300ms ease-in-out,
     right 300ms ease-in-out,
     width 300ms ease-in-out
     color 300ms ease-in-out,;
+
+  .leaving {
+    animation: transition-Out 2.5s cubic-bezier(.97,.01,.64,1) forwards;
+  }
 
   .transitionTitle {
     margin-bottom: 2rem;

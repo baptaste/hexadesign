@@ -4,6 +4,8 @@ export const initialState = {
   navLinkHovered: false,
   navImgSrc: '',
   loading: false,
+  // entering: false,
+  leaving: false,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,6 +31,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         navLinkHovered: false,
         // navImgSrc: '',
+      }
+    case 'SET_LEAVING':
+      return {
+        ...state,
+        leaving: true,
+      }
+    case 'END_LEAVING':
+      return {
+        ...state,
+        leaving: false,
       }
     case 'GET_ALL_PROJECTS_SUCCESS':
       return { ...state, loading: false }

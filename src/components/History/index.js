@@ -4,7 +4,7 @@ import { getCategoryName } from 'src/utils';
 
 import './history.scss'
 
-const History = ({ categories, project }) => {
+const History = ({ categories, project, setLeaving, endLeaving }) => {
 
   const navigate = useNavigate(),
         location = useLocation();
@@ -15,7 +15,11 @@ const History = ({ categories, project }) => {
     // clearProjects();
   }
   function goBackToCategory() {
-    navigate(-1);
+    setLeaving();
+    setTimeout(() => {
+      navigate(-1);
+      endLeaving();
+    }, 2000)
     // clearCategory();
     // clearProjects();
   }
