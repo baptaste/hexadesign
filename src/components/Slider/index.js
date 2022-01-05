@@ -18,7 +18,8 @@ const Slider = ({
   let sliderHeight,
       cardWidth = '20%',
       cardHeight = '400px',
-      firstCardWidth = '40%';
+      firstCardWidth = '40%',
+      minimalCardsNb = 4;
 
   function getSliderHeight() {
     if (projects.length > 4) {
@@ -122,6 +123,10 @@ const Slider = ({
               </Link>
             ))
           )}
+          {/* {projects.length % 3 } */}
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
       </section>
   );
 }

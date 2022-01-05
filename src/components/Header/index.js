@@ -7,7 +7,7 @@ const Header = ({ menuOpen }) => {
     <header className='header flex-column'>
       <div className='banner flex-column-around'>
         <img src={hexaLogo} className={menuOpen ? 'hexaLogo no-opacity' : 'hexaLogo'} />
-        <h1 className='page-title'>
+        <h1 className='homepage-title'>
           <span><span className={menuOpen ? 'no-opacity' : ''}>HexaDesign</span></span>
         </h1>
       </div>

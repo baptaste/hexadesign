@@ -4,6 +4,7 @@
   // grid-template-rows: auto;
   // position: relative;
   width: 100%;
+  // display: inline-flex;
   // height: 400px;
   margin: 3rem 0;
   overflow-y: hidden;
@@ -26,9 +27,8 @@
   // padding-left: 1.25rem;
   padding-right: 1.25rem;
   // margin-bottom: 1rem;
-  margin: 0 auto 1rem;
+  // margin: 0 auto 1rem; .. ?
   transition: width 500ms ease;
-
   // &:last-child {
   //   padding-bottom: 2rem;
   // }

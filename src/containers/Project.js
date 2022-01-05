@@ -8,7 +8,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
    getProject: (id) => {
     dispatch({ type: 'GET_PROJECT', id })
-  }
+  },
+  setPrevPath: (path) => {
+    dispatch({ type: 'SET_PREVIOUS_PATH', path })
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Project);

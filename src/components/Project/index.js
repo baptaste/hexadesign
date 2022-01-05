@@ -5,24 +5,26 @@ import History from 'src/containers/History'
 import Transition from 'src/containers/Transition'
 import './project.scss'
 
-const Project = ({ getProject, project }) => {
-  const location = useLocation(),
-        path = location.pathname;
+const Project = ({ getProject, project, setPrevPath }) => {
+  const { pathname } = useLocation();
 
-  const projectIdFromURL = path.match(/\d/g) // get characters between slashes
+  const projectIdFromURL = pathname.match(/\d/g) // get characters between slashes
                                .toString()
-                               .replace(/,/g, ""); // remove comma by empty str
+                               .replace(/,/g, ""); // replace comma with empty str
 
   useEffect(() => {
     getProject(projectIdFromURL);
-  }, [path]);
+    setPrevPath(pathname);
+  }, [pathname]);
+
+  const projectThemes = project?.attributes.themes.data
 
   return (
     project && (
     <div className='projectWrapper'>
       <MenuToggler />
       <History />
-      <Transition title={project.attributes.name} text={project.attributes.description} />
+      <Transition type='lateral' title={project.attributes.name} text={project.attributes.description} content={projectThemes} />
       <div className='left flex-column'>
         {project.attributes.image.data.map((img) => (
           <img key={img.id} src={`http://localhost:1337${img.attributes.formats.small.url}`} className='projectImg' />

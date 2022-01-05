@@ -22,9 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
   hideNavLinkImg: () => {
     dispatch({ type: 'HIDE_NAVLINK_IMG' });
   },
-  setCategory: (category) => {
-    dispatch({ type: 'SET_CATEGORY', category });
-  },
+  // setCategory: (category) => {
+  //   dispatch({ type: 'SET_CATEGORY', category });
+  // },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

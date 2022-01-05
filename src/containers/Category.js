@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   projectInfoRevealed: state.projects.projectInfoRevealed,
   infoIdRevealed: state.projects.infoIdRevealed,
   allSliderPreviewsRevealed: state.projects.allSliderPreviewsRevealed,
+  prevPath: state.settings.prevPath,
 });
 
 const mapDispatchToProps = (dispatch) => ({

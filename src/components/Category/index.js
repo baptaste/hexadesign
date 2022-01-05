@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom';
-import Slider from 'src/containers/Slider';
+import { useLocation, useNavigate } from 'react-router-dom'
+import Slider from 'src/containers/Slider'
 import MenuToggler from 'src/containers/MenuToggler'
-import { getCategoryName, getCategoryThemes } from 'src/utils';
+import { getCategoryName, getCategoryThemes } from 'src/utils'
+import Transition from 'src/containers/Transition'
 
 import './category.scss'
 
@@ -15,29 +16,30 @@ const Category = ({
   getFilteredProjects,
   filteredProjects,
   clearFilteredProjects,
-  filteredTheme }) => {
+  filteredTheme,
+  prevPath }) => {
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     getCategoryProjects();
   }, []);
 
-  const location = useLocation();
-  let categoryName = getCategoryName(categoryName, categories, location.pathname);
-  let currentThemes = getCategoryThemes(currentThemes, projects);
-  let baseProjectPreviewShow = 4;
+  let categoryName = getCategoryName(categoryName, categories, pathname),
+      currentThemes = getCategoryThemes(currentThemes, projects),
+      baseProjectPreviewShow = 4;
 
   return (
     <div className='categoryWrapper flex-column-around'>
-      {/* <History /> */}
+      {prevPath === '/' && <Transition type='vertical' />}
       <MenuToggler />
       <h1 className='categoryTitle medium-size text-bold'>{categoryName}.</h1>
       {currentThemes[0] !== undefined && (
          <div className='categoryThemes flex'>
          {currentThemes.map((theme, i) =>
-
           <div
             key={i}
-            onClick={filteredProjects.length === 0 ? () => getFilteredProjects(theme) : null}
+            onClick={filteredTheme !== theme ? () => getFilteredProjects(theme) : null}
             className={filteredTheme === theme ?
               'themeTag themeTag-active flex-center radius-5 small-size pointer second-background'
               : 'themeTag flex-center radius-5 small-size pointer second-background'}

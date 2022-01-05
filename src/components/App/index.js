@@ -6,8 +6,9 @@ import Nav from 'src/containers/Nav'
 import Category from 'src/containers/Category'
 import MenuToggler from 'src/containers/MenuToggler'
 import Project from 'src/containers/Project'
+import About from 'src/containers/About'
 
-const App = ({ getAllCategories, getAllProjects, getAllThemes }) => {
+const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) => {
   useEffect(() => {
     getAllCategories();
     getAllProjects();
@@ -17,6 +18,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes }) => {
   const location = useLocation();
   useEffect(() => {
     window.scroll(0, 0);
+    location.pathname === '/' && setPrevPath(location.pathname);
   }, [location]);
 
   return (
@@ -32,6 +34,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes }) => {
         />
         <Route exact path='/category/:id' element={<Category />} />
         <Route exact path='/category/:id/:projectId' element={<Project />} />
+        <Route exact path='/about' element={<About />} />
       </Routes>
     </div>
   );

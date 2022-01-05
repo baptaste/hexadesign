@@ -4,8 +4,8 @@ export const initialState = {
   navLinkHovered: false,
   navImgSrc: '',
   loading: false,
-  // entering: false,
   leaving: false,
+  prevPath: null,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -41,6 +41,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         leaving: false,
+      }
+    case 'SET_PREVIOUS_PATH':
+      return {
+        ...state,
+        prevPath: action.path,
       }
     case 'GET_ALL_PROJECTS_SUCCESS':
       return { ...state, loading: false }

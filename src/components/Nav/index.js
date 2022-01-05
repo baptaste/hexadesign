@@ -13,12 +13,10 @@ const Nav = ({
   handleNavLinkClick,
   toggleMenuOpen,
   setCategory,
-  categories }) => {
+  categories,
+  }) => {
 
   function handleNavLinkClick(path, name) {
-    // if (path.includes('/category/')) {
-    //   setCategory(name);
-    // }
     hideNavLinkImg();
     toggleMenuOpen();
   }

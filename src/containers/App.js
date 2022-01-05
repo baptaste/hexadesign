@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 
 const mapStateToProps = (state) => ({
-//  categories: state.categories.categories,
+  transitionActive: state.settings.transitionActive,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getAllThemes: () => {
     dispatch({ type: 'GET_ALL_THEMES' })
+  },
+  setPrevPath: (path) => {
+    dispatch({ type: 'SET_PREVIOUS_PATH', path })
   },
 });
 

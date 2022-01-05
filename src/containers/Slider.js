@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getProjectId: (projectId) => {
     dispatch({ type: 'GET_PROJECT_ID', projectId })
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Slider);

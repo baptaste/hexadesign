@@ -1,23 +1,68 @@
 import React from 'react'
 import './transition.scss'
+import wood from 'src/assets/wood-icon-light.png'
 
-const Transition = ({ title, text, leaving }) => {
+const Transition = ({ type, title, text, content, leaving }) => {
+
+  // function waitUntilAnimEnded() {
+  //   let value = '0'
+  //   console.log('on passe bien dans waitUntilAnimEnded');
+  //   setTimeout(() => {
+  //       value = '1'
+  //   }, 2000)
+  //   return value;
+  // }
+
+  // const opacityValue = waitUntilAnimEnded()
+  // useEffect(() => {
+  //   setAnimDuration();
+  // }, [])
+
+  let animDuration;
+
+  function setAnimDuration() {
+    if (type === 'lateral') animDuration = '2s';
+    if (type === 'vertical') animDuration = '1.5s';
+  }
+
+  setAnimDuration();
+
   return (
-    <div className='transition flex-column'
-    style={{animation: leaving ? 'transition-Out 2s cubic-bezier(.97,.01,.64,1) forwards' :
-    'transition-In 2.5s cubic-bezier(.97,.01,.64,1) forwards'}}>
-      {!leaving && (
-        <>
-        <h1 className='transitionTitle big-size text-bold'>
-        {title}
-        </h1>
-        <p className='transitionText normal-size'>
-        {text}
-        </p>
-        </>
-      )}
+    <>
+    {type === 'lateral' && (
+      <div className={`transition ${type} flex-column`}
+      style={{animation: leaving ? `lateral-Out ${animDuration} cubic-bezier(.97,.01,.64,1) forwards` :
+      `lateral-In ${animDuration} cubic-bezier(.97,.01,.64,1) forwards`}}>
+        {!leaving && (
+          <>
+          <div className='top'>
+            <h1 className='transitionTitle big-size text-bold'>
+            {title}
+            </h1>
+            <p className='transitionText normal-size'>
+            {text}
+            </p>
+          </div>
+          <div className='bottom'>
+          {content.map(({ attributes, id }) => (
+            <div className='material flex' key={id}>
+                <img src={wood} className='materialIcon' />
+                <p className='normal-size'>{attributes.name}</p>
+            </div>
+            ))}
+          </div>
+          </>
+        )}
+        {/* <span className='scrollIcon'></span> */}
+      </div>
+    )}
 
-    </div>
+    {type === 'vertical' && (
+      <div className={`transition ${type} flex-column`}
+      style={{animation: `vertical-In ${animDuration} cubic-bezier(.92,0,.49,.72) forwards`}}>
+      </div>
+    )}
+    </>
   );
 }
 

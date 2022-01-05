@@ -17,6 +17,16 @@
   z-index: -1;
 }
 
+.open {
+  // transform: translateX(0);
+  opacity: 1;
+  z-index: 1;
+}
+
+.leaveMenu {
+  animation: vertical-In 3s cubic-bezier(.92,0,.49,.72) forwards;
+}
+
 .nav {
   position: relative;
   width: 60%;
@@ -61,12 +71,6 @@
 //     opacity: 0 !important;
 //   }
 // }
-
-.open {
-  // transform: translateX(0);
-  opacity: 1;
-  z-index: 1;
-}
 
 .bait {
   position: absolute;
