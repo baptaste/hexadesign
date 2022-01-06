@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import MenuToggler from 'src/containers/MenuToggler'
 import History from 'src/containers/History'
 import Transition from 'src/containers/Transition'
-import NavState from 'src/components/NavState'
+import NavState from 'src/containers/NavState'
 import './project.scss'
 
 const Project = ({ getProject, project, setPrevPath }) => {
@@ -41,7 +41,7 @@ const Project = ({ getProject, project, setPrevPath }) => {
           Doloribus aut aspernatur saepe, culpa dolores possimus facilis repudiandae asperiores sit officia obcaecati. Laudantium, eligendi aliquid magni nam rerum inventore expedita, corrupti officiis nostrum eum illo maxime, adipisci magnam maiores.
           </p>
         </div>
-        <NavState />
+        <NavState axis='vertical-axis' />
       </div>
     </div>
     )

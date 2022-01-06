@@ -1,26 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import './nav-state.scss'
 
-const NavState = () => {
-  const [scroll, setScroll] = useState(0);
+const NavState = ({ axis, setScrollValue, scrollValue }) => {
+  function onScroll() {
+    const scrolled = document.documentElement.scrollTop;
+    const maxHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = (scrolled / maxHeight) * 100;
+    setScrollValue(scrollPercent);
+  }
 
-  const onScroll = () => {
-    const Scrolled = document.documentElement.scrollTop;
-    const MaxHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const ScrollPercent = (Scrolled / MaxHeight) * 100;
-    setScroll(ScrollPercent);
-  };
+  useEffect(() => {
+    onScroll();
+  }, []);
 
   window.addEventListener('scroll', onScroll);
 
+
   return (
-    <div className='navState'
-        style={{
-          height: `${Math.floor(scroll)}%`
-        }}>
-    </div>
+    <>
+      {axis === 'vertical-axis' && (
+        <div className={`navState ${axis}`}
+          style={{ height: `${Math.floor(scrollValue)}%` }}
+        >
+        </div>
+      )}
+      {axis === 'lateral-axis' && (
+        <div className={`navState ${axis} second-background`}
+          style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)` }}
+        >
+        </div>
+      )}
+    </>
   );
 }
 

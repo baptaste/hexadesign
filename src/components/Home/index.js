@@ -4,7 +4,7 @@ import './home.scss'
 const Home = () => {
 
   return (
-    <main className='home flex-start-around '>
+    <main className='home flex-column'>
       <div className='service flex-column-around radius-15'>
         <p className='extra-size text-bold'>Création</p>
         <p className='serviceDesc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,

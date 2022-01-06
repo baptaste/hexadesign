@@ -6,6 +6,7 @@ export const initialState = {
   loading: false,
   leaving: false,
   prevPath: null,
+  scrollValue: 0,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -46,6 +47,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         prevPath: action.path,
+      }
+    case 'SET_SCROLL_VALUE':
+      return {
+        ...state,
+        scrollValue: action.value,
       }
     case 'GET_ALL_PROJECTS_SUCCESS':
       return { ...state, loading: false }
