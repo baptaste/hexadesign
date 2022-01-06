@@ -7,7 +7,8 @@ import Category from 'src/containers/Category'
 import MenuToggler from 'src/containers/MenuToggler'
 import Project from 'src/containers/Project'
 import About from 'src/containers/About'
-import NavState from 'src/containers/NavState';
+import NavState from 'src/containers/NavState'
+import Footer from 'src/components/Footer'
 
 const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) => {
   useEffect(() => {
@@ -38,6 +39,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) =>
         <Route exact path='/category/:id/:projectId' element={<Project />} />
         <Route exact path='/about' element={<About />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

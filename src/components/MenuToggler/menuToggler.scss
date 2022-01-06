@@ -5,6 +5,7 @@
   top: 5rem;
   width: 5rem;
   height: 5rem;
+  // mix-blend-mode: difference;
 
   &:hover {
     .line:first-child:not(.rotated),
@@ -22,7 +23,7 @@
   width: 2rem;
   height: 1.5px;
   margin-bottom: .5rem;
-  background: black;
+  // background-color: white;
   transition:
     transform 300ms ease-in,
     display 200ms ease-in-out,

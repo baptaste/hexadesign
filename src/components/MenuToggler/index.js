@@ -1,25 +1,35 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import './menuToggler.scss'
 
 const MenuToggler = ({ toggleMenuOpen, menuOpen }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(),
+      { pathname } = useLocation();
 
   function goBackWithMenu() {
     navigate('/');
     toggleMenuOpen();
   }
+
   return (
     <div className='menuTogglerWrapper flex-center'>
       <button
-      className='menuToggler button-reset flex-column'
+      className={pathname === '/' ? 'menuToggler button-reset flex-column mix-blend-diff' : 'menuToggler button-reset flex-column'}
       onClick={goBackWithMenu}>
-        <div className={menuOpen ? 'line rotated' : 'line'}></div>
-        <div className={menuOpen ? 'line rotated' : 'line'}></div>
-        <div className={menuOpen ? 'line rotated' : 'line'}></div>
+        <div className={menuOpen ? 'line rotated' : 'line'}
+          style={{ background: pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
+        >
+        </div>
+        <div className={menuOpen ? 'line rotated' : 'line'}
+          style={{ background: pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
+        >
+        </div>
+        <div className={menuOpen ? 'line rotated' : 'line'}
+          style={{ background: pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
+        >
+        </div>
       </button>
     </div>
-
   );
 }
 

@@ -25,9 +25,11 @@ const NavState = ({ axis, setScrollValue, scrollValue }) => {
         </div>
       )}
       {axis === 'lateral-axis' && (
-        <div className={`navState ${axis} second-background`}
-          style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)` }}
-        >
+        <div className='navState-lateral'>
+          <div className={`navState ${axis}`}
+            style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)` }}
+          >
+          </div>
         </div>
       )}
     </>

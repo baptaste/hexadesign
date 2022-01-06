@@ -3,17 +3,24 @@
 .home {
   width: 100%;
   min-height: 100vh;
+  margin-bottom: 5rem;
 }
 
 .service {
-  width: 25rem;
-  height: 20rem;
+  width: 100vw;
+  height: 100vh;
   margin-bottom: 2rem;
-  border: 1px solid black;
+
+  &:nth-child(odd) {
+    background-color: black;
+    color: white;
+  }
 
   .serviceDesc {
+    width: 60%;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.5;
     padding: 1rem 1.5rem;
+
   }
 }
