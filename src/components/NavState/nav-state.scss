@@ -1,0 +1,13 @@
+.navState {
+  position: fixed;
+  top: 0;
+  left: 60%;
+  width: 3px;
+  // height: 100vh;
+  border-left: 2px solid #ccc;
+  background: white;
+  transition: height 650ms ease;
+  -webkit-transition: height 650ms ease;
+  // -webkit-box-shadow: inset 1px -1px 0px 0px #000000;
+  // box-shadow: inset 1px -1px 0px 0px #000000;
+}

@@ -4,20 +4,6 @@ import wood from 'src/assets/wood-icon-light.png'
 
 const Transition = ({ type, title, text, content, leaving }) => {
 
-  // function waitUntilAnimEnded() {
-  //   let value = '0'
-  //   console.log('on passe bien dans waitUntilAnimEnded');
-  //   setTimeout(() => {
-  //       value = '1'
-  //   }, 2000)
-  //   return value;
-  // }
-
-  // const opacityValue = waitUntilAnimEnded()
-  // useEffect(() => {
-  //   setAnimDuration();
-  // }, [])
-
   let animDuration;
 
   function setAnimDuration() {
@@ -53,7 +39,6 @@ const Transition = ({ type, title, text, content, leaving }) => {
           </div>
           </>
         )}
-        {/* <span className='scrollIcon'></span> */}
       </div>
     )}
 
