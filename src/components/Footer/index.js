@@ -4,10 +4,20 @@ import './footer.scss'
 
 const Footer = () => {
   const { pathname } = useLocation();
-  //TODO hide footer on project page
+  let footerReduced = false;
+
+  function checkPathname() {
+    if (pathname.includes('/category/') && pathname.length > 10 && pathname.match(/[0-9]+/g)) {
+      footerReduced = true
+    } else {
+      footerReduced = false
+    }
+  }
+
+  checkPathname();
 
   return (
-    <footer className='footer'>
+    <footer className={footerReduced ? 'footer footer-reduced' : 'footer'}>
       HexaDesign 2022 - Tout droits réservés.
     </footer>
   );

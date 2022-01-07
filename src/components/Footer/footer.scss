@@ -3,10 +3,11 @@
   place-items: center;
   width: 100%;
   height: 15vh;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   border-top: 1px solid black;
-}
 
-.none {
-  display: none;
+  &-reduced {
+    width: 50%;
+    margin: 3rem 0 0;
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import hexaLogo from 'src/assets/hexadesign-logo.jpg'
+import hexaLogo from 'src/assets/images/hexadesign-logo.jpg'
 import './header.scss'
 
 const Header = ({ menuOpen }) => {
