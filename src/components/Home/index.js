@@ -1,29 +1,32 @@
 import React from 'react'
 import './home.scss'
+import Showcase from 'src/containers/Showcase';
 
 const Home = () => {
 
   return (
     <main className='home flex-column'>
-      <div className='service flex-column-around'>
-        <p className='extra-size text-bold'>Création</p>
-        <p className='serviceDesc medium-size'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,
-          quos autem minima incidunt ex tempora nemo velit adipisci accusamus vitae similique sint ad enim blanditiis.
-        </p>
-      </div>
-      <div className='service flex-column-around'>
-        <p className='extra-size text-bold'>Précision</p>
-        <p className='serviceDesc medium-size'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,
-          quos autem minima incidunt ex tempora nemo velit adipisci accusamus vitae similique sint ad enim blanditiis.
-        </p>
-      </div>
-      <div className='service flex-column-around'>
-        <p className='extra-size text-bold'>Innovation</p>
-        <p className='serviceDesc medium-size'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,
-          quos autem minima incidunt ex tempora nemo velit adipisci accusamus vitae similique sint ad enim blanditiis.
-        </p>
-      </div>
-      {/* TODO : get all projects here */}
+      <Showcase />
+      <section className='services'>
+        <div className='service flex-column-around'>
+          <p className='page-title'>Création</p>
+          <p className='serviceDesc medium-size'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,
+            quos autem minima incidunt ex tempora nemo velit adipisci accusamus vitae similique sint ad enim blanditiis.
+          </p>
+        </div>
+        <div className='service flex-column-around'>
+          <p className='page-title'>Précision</p>
+          <p className='serviceDesc medium-size'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,
+            quos autem minima incidunt ex tempora nemo velit adipisci accusamus vitae similique sint ad enim blanditiis.
+          </p>
+        </div>
+        <div className='service flex-column-around'>
+          <p className='page-title'>Innovation</p>
+          <p className='serviceDesc medium-size'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis tempore ducimus, fuga quas libero,
+            quos autem minima incidunt ex tempora nemo velit adipisci accusamus vitae similique sint ad enim blanditiis.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,0 +1,42 @@
+.showcase {
+  width: 100%;
+  justify-content: space-between;
+
+  .showcaseLeft, .showcaseRight, .showcaseCenter {
+    width: 33%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .showcaseCenter {
+    // justify-content: center;
+    text-align: center;
+
+    &-text {
+      margin: 2rem 0;
+    }
+
+    &-info {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid black;
+    }
+
+    &-title, &-info {
+      line-height: 1.5;
+    }
+  }
+
+  .showcaseLine {
+    width: .5px;
+    height: 35%;
+    background: black;
+  }
+
+  .showcaseImg {
+    display: block;
+    width: 360px;
+    height: 500px;
+    margin-bottom: 3rem;
+    transition: transform 500ms ease;
+  }
+}

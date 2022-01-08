@@ -9,6 +9,8 @@ export const initialState = {
   allSliderPreviewsRevealed: false,
   // projectId: null,
   project: null,
+  showcaseProjectHover: false,
+  showcaseProjectId: null,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -98,6 +100,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         project: null,
+      }
+    case 'SET_SHOWCASE_PROJECT_HOVER':
+      return {
+        ...state,
+        showcaseProjectHover: !state.showcaseProjectHover,
+        showcaseProjectId: action.id
       }
     default:
       return state;

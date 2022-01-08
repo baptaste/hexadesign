@@ -48,13 +48,13 @@ const Slider = ({
                 onMouseOut={hideProjectInfo}
               >
                 {loading ? <Loader width={infoIdRevealed === id ? '410px' : '185px'} height='368px' /> : (
-                  <div className='previewContainer shadow-radius-10'>
+                  <div className='previewContainer'>
                     <img
                       src={`http://localhost:1337${attributes.image.data[0].attributes.formats.small.url}`}
                       loading='eager'
-                      className='projectPreviewImg radius-10'
+                      className='projectPreviewImg'
                     />
-                    <div className={!menuOpen && infoIdRevealed === id ? 'previewTxt reveal gradient flex-column-around radius-10' : 'previewTxt flex-column-around'}>
+                    <div className={!menuOpen && infoIdRevealed === id ? 'previewTxt reveal gradient flex-column-around' : 'previewTxt flex-column-around'}>
                       <div className='previewTxt-top normal-size text-bold text-center'>
                         {attributes.name}
                       </div>
@@ -80,13 +80,13 @@ const Slider = ({
                 onMouseOut={hideProjectInfo}
               >
                 {loading ? <Loader width={infoIdRevealed === id ? '410px' : '185px'} height='368px' /> : (
-                  <div className='previewContainer shadow-radius-10'>
+                  <div className='previewContainer'>
                     <img
                       src={`http://localhost:1337${attributes.image.data[0].attributes.formats.small.url}`}
                       loading='eager'
-                      className='projectPreviewImg radius-10'
+                      className='projectPreviewImg'
                     />
-                    <div className={!menuOpen && infoIdRevealed === id ? 'previewTxt reveal gradient flex-column-around radius-10' : 'previewTxt flex-column-around'}>
+                    <div className={!menuOpen && infoIdRevealed === id ? 'previewTxt reveal gradient flex-column-around' : 'previewTxt flex-column-around'}>
                       <div className='previewTxt-top normal-size text-bold text-center'>
                         {attributes.name}
                       </div>
@@ -96,28 +96,6 @@ const Slider = ({
                         ))}
                       </div>
                     </div>
-                    {/* {attributes.image.data && attributes.image.data.map((img) => (
-                      <div
-                        className={infoIdRevealed === id ? 'slide firstSlide radius-10' : 'slide radius-10'}
-                        key={img.id}
-                        style={{backgroundImage: `url(http://localhost:1337${img.attributes.formats.small.url})`}}
-                        onMouseOver={() => revealProjectInfo(img.id)}
-                        onMouseOut={hideProjectInfo}
-                        >
-                      </div>
-                    ))} */}
-                    {/* <div id={`preview-${id}`}
-                      className={infoIdRevealed === id ? 'projectInfo reveal gradient flex-column-around radius-10' : 'projectInfo flex-column-around radius-10'}>
-                        <p className='normal-size text-bold text-center'>
-                          {attributes.name}
-                        </p>
-                      <div className='projectThemes flex-center-around flex-wrap'>
-                        {attributes.themes.data && attributes.themes.data.map((theme) => (
-                          <span key={theme.id} className='small-size'>{theme.attributes.name}</span>
-                        ))}
-                      </div>
-                    </div> */}
-
                   </div>
                 )}
               </Link>

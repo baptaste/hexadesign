@@ -6,21 +6,47 @@
   margin-bottom: 5rem;
 }
 
-.service {
-  width: 100vw;
-  height: 100vh;
-  margin-bottom: 2rem;
+.services {
+  margin: 5rem 0;
 
-  &:nth-child(odd) {
-    background-color: black;
-    color: white;
-  }
+  .service {
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 2rem;
 
-  .serviceDesc {
-    width: 60%;
-    text-align: center;
-    line-height: 1.5;
-    padding: 1rem 1.5rem;
+    &:nth-child(odd) {
+      background-color: black;
+      color: white;
+    }
 
+    .serviceDesc {
+      width: 60%;
+      // text-align: center;
+      line-height: 1.5;
+      padding: 1rem 1.5rem;
+    }
   }
 }
+
+.service:nth-child(1) > .serviceDesc {
+    width: 60%;
+    align-self: flex-end;
+    text-align: right;
+    padding-right: 5rem;
+}
+
+.service:nth-child(2) > .serviceDesc {
+  width: 60%;
+  align-self: flex-start;
+  text-align: left;
+  padding-left: 5rem;
+}
+
+.service:nth-child(3) > .serviceDesc {
+  width: 60%;
+  align-self: flex-end;
+  text-align: right;
+  padding-right: 5rem;
+}
+
+

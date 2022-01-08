@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from 'src/containers/Header'
-import Home from 'src/components/Home'
+import Home from 'src/containers/Home'
 import Nav from 'src/containers/Nav'
 import Category from 'src/containers/Category'
 import MenuToggler from 'src/containers/MenuToggler'
