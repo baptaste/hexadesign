@@ -17,12 +17,12 @@ const Showcase = ({ allProjects, setShowcaseProjectHover, showcaseProjectHover, 
         <div className='showcaseLeft flex-column'>
           <img src={tabouret}
             id={favoriteProjects[0]?.id}
-            className='showcaseImg'
+            className={showcaseProjectHover && showcaseProjectId === favoriteProjects[0]?.id ? 'showcaseImg shadow' : 'showcaseImg'}
             style={{ transform: showcaseProjectHover && showcaseProjectId === favoriteProjects[0]?.id ?
               'translateY(-5%)' : 'translateY(0)' }}
           />
           <div className='showcaseProject flex-column-around'>
-              <p className='text-bold'>{favoriteProjects[0]?.attributes.name}</p>
+              <p className='second-font medium-size text-bold'>{favoriteProjects[0]?.attributes.name}</p>
               <Link className='showcaseLink normal-size' to={`${pathsToProjects[0]}`}
               onMouseEnter={() => setShowcaseProjectHover(favoriteProjects[0]?.id)} onMouseLeave={() => setShowcaseProjectHover(null)}>
                 Découvrir
@@ -40,12 +40,12 @@ const Showcase = ({ allProjects, setShowcaseProjectHover, showcaseProjectHover, 
         <div className='showcaseRight flex-column'>
           <img src={barres}
             id={favoriteProjects[1]?.id}
-            className='showcaseImg'
+            className={showcaseProjectHover && showcaseProjectId === favoriteProjects[1]?.id ? 'showcaseImg shadow' : 'showcaseImg'}
             style={{ transform: showcaseProjectHover && showcaseProjectId === favoriteProjects[1]?.id ?
               'translateY(-5%)' : 'translateY(0)' }}
           />
           <div className='showcaseProject flex-column-around'>
-            <p className='text-bold'>{favoriteProjects[1]?.attributes.name}</p>
+            <p className='second-font medium-size text-bold'>{favoriteProjects[1]?.attributes.name}</p>
             <Link className='showcaseLink normal-size' to={`${pathsToProjects[1]}`}
               onMouseEnter={() => setShowcaseProjectHover(favoriteProjects[1]?.id)} onMouseLeave={() => setShowcaseProjectHover(null)}>
                 Découvrir

@@ -102,9 +102,15 @@ const Slider = ({
             ))
           )}
           {/* {projects.length % 3 } */}
+          {/* <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
           <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
           <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
           <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div>
+          <div className='card cardFake flex-column-between' style={{width: cardWidth, height: cardHeight}}></div> */}
       </section>
   );
 }

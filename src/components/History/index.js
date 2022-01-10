@@ -7,7 +7,8 @@ import './history.scss'
 const History = ({ categories, project, setLeaving, endLeaving }) => {
 
   const navigate = useNavigate(),
-        location = useLocation();
+        location = useLocation(),
+        categoryPath = project.attributes.categories.data[0].attributes.path;
 
   function goToHome() {
     navigate('/');
@@ -17,8 +18,8 @@ const History = ({ categories, project, setLeaving, endLeaving }) => {
   function goBackToCategory() {
     setLeaving();
     setTimeout(() => {
-      navigate(-1);
-      // navigate(`/category/${}`)
+      // navigate(-1);
+      navigate(`${categoryPath}`);
       endLeaving();
     }, 2000)
     // clearCategory();

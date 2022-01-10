@@ -8,7 +8,8 @@
   // height: 400px;
   margin: 3rem 0;
   overflow-y: hidden;
-    // background: #ccc;
+  // background: #ccc;
+  // justify-content: space-evenly;
   transition: height 300ms ease, width 300ms ease;
 }
 
@@ -22,13 +23,12 @@
 .card {
   // border: 1px solid salmon;
   overflow: hidden;
-  padding-top: 1rem;
+  // padding-top: 1rem;
   padding-bottom: 1rem;
-  // padding-left: 1.25rem;
   padding-right: 1.25rem;
   // margin-bottom: 1rem;
   // margin: 0 auto 1rem; .. ?
-  transition: width 500ms ease;
+  transition: all 700ms ease;
   // &:last-child {
   //   padding-bottom: 2rem;
   // }
@@ -49,12 +49,13 @@
   z-index: 0;
   display: block;
   // height: 115%;
+  // height: 400px;
   height: 100%;
   min-width: 100%;
   // width: 100%;
   max-width: 100%;
   object-fit: cover;
-  transition: width 500ms ease;
+  transition: width 700ms ease;
 }
 
 // .slide {

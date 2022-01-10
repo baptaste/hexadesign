@@ -41,8 +41,8 @@ const Category = ({
             key={i}
             onClick={filteredTheme !== theme ? () => getFilteredProjects(theme) : null}
             className={filteredTheme === theme ?
-              'themeTag themeTag-active flex-center radius-5 small-size pointer second-background'
-              : 'themeTag flex-center radius-5 small-size pointer second-background'}
+              'themeTag themeTag-active flex-center small-size pointer second-background'
+              : 'themeTag flex-center small-size pointer second-background'}
             >
               <p className={filteredTheme === theme ? 'themeTagText-active' : 'themeTagText'}>{theme}</p>
               {filteredProjects.length !== 0 && filteredTheme === theme &&

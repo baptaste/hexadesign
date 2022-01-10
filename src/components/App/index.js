@@ -37,7 +37,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) =>
         />
         <Route exact path='/category/:id' element={<Category />} />
         <Route exact path='/category/:id/:projectId' element={<Project />} />
-        <Route exact path='/about' element={<About />} />
+        <Route exact path='/category/about' element={<About />} />
       </Routes>
       <Footer />
     </div>

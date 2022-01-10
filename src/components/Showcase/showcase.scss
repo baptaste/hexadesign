@@ -16,10 +16,10 @@
       margin: 2rem 0;
     }
 
-    &-info {
-      margin-bottom: 1rem;
-      border-bottom: 2px solid black;
-    }
+    // &-info {
+    //   margin-bottom: 1rem;
+    //   border-bottom: 2px solid black;
+    // }
 
     &-title, &-info {
       line-height: 1.5;
@@ -37,6 +37,21 @@
     width: 360px;
     height: 500px;
     margin-bottom: 3rem;
-    transition: transform 500ms ease;
+    mix-blend-mode: multiply;
+    transition: transform 500ms ease, box-shadow 300ms ease;
   }
+
+  .showcaseLink {
+    padding-bottom: .2rem;
+    border-bottom: 1px solid white;
+    transition: all 200ms ease;
+
+    &:hover {
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+.showcaseProject > p {
+  margin-bottom: 1rem;
 }

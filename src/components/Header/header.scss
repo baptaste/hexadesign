@@ -19,7 +19,7 @@
   z-index: -1;
 }
 
-.homepage-title {
+.hero-title {
   > span {
     display: block;
     overflow: hidden;
@@ -29,4 +29,8 @@
       animation: spanFadeIn 500ms ease forwards;
     }
   }
+}
+
+.hero-subtitle {
+  letter-spacing: .5rem;
 }
