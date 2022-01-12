@@ -24,6 +24,7 @@
 
 .categoryThemes {
   width: 100%;
+  justify-content: center;
 
   .themeTag {
     // position: relative;
@@ -94,9 +95,9 @@
   }
 }
 
-.sliderContainer {
-  width: 100%;
-}
+// .sliderContainer {
+//   width: 100%;
+// }
 
 .previewSlider-btn {
   margin-left: 1rem;

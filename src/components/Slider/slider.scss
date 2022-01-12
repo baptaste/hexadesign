@@ -1,7 +1,14 @@
 .previewSlider {
-  // display: grid;
+  display: grid;
   // grid-template-columns: repeat(5, 1fr);
   // grid-template-rows: auto;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  // grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+
   // position: relative;
   width: 100%;
   // display: inline-flex;
@@ -24,8 +31,10 @@
   // border: 1px solid salmon;
   overflow: hidden;
   // padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-right: 1.25rem;
+  // border: 1px solid black;
+  // padding-bottom: 1rem;
+  // padding-right: 1.25rem;
+
   // margin-bottom: 1rem;
   // margin: 0 auto 1rem; .. ?
   transition: all 700ms ease;

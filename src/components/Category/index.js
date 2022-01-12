@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Slider from 'src/containers/Slider'
+// import Slider from 'src/containers/Slider'
+import List from 'src/containers/List'
 import MenuToggler from 'src/containers/MenuToggler'
 import { getCategoryName, getCategoryThemes } from 'src/utils'
 import Transition from 'src/containers/Transition'
@@ -56,18 +57,18 @@ const Category = ({
        </div>
       )}
 
-      <div className='sliderContainer flex-center-between'>
-        {projects !== [] && <Slider categoryName={categoryName} />}
+      {/* <div className='sliderContainer flex-center-between'> */}
+        {projects !== [] && <List categoryName={categoryName} />}
 
-        {!allSliderPreviewsRevealed && filteredProjects.length === 0 && projects.length > baseProjectPreviewShow && (
+        {/* {!allSliderPreviewsRevealed && filteredProjects.length === 0 && projects.length > baseProjectPreviewShow && (
           <button
             type='button'
             className='previewSlider-btn button-reset pointer medium-size'
             onClick={revealAllSliderPreviews}>
               {projects.length - baseProjectPreviewShow}+
           </button>
-        )}
-      </div>
+        )} */}
+      {/* </div> */}
     </div>
   );
 }
