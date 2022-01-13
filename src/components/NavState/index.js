@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './nav-state.scss'
 
-const NavState = ({ axis, setScrollValue, scrollValue }) => {
+const NavState = ({ axis, setScrollValue, scrollValue, menuOpen }) => {
   function onScroll() {
     const scrolled = document.documentElement.scrollTop;
     const maxHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -17,22 +17,26 @@ const NavState = ({ axis, setScrollValue, scrollValue }) => {
 
 
   return (
-    <>
-      {axis === 'vertical-axis' && (
-        <div className={`navState ${axis}`}
-          style={{ height: `${Math.floor(scrollValue)}%` }}
-        >
-        </div>
-      )}
-      {axis === 'lateral-axis' && (
-        <div className='navState-lateral'>
+    !menuOpen && (
+      <>
+        {axis === 'vertical-axis' && (
           <div className={`navState ${axis}`}
-            style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)` }}
+            style={{ height: `${Math.floor(scrollValue)}%` }}
           >
           </div>
-        </div>
-      )}
-    </>
+        )}
+        {axis === 'lateral-axis' && (
+          <div className='navState-lateral'>
+            <div className={`navState ${axis}`}
+              style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)` }}
+            >
+            </div>
+          </div>
+        )}
+      </>
+    )
+
+
   );
 }
 

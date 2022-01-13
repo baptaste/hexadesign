@@ -6,20 +6,12 @@
 }
 
 .medium-img {
-  // width: 500px;
-  // height: 700px;
-  // object-fit: cover;
   display: block;
   width: 400px;
-  // height: 70%;
   object-fit: cover;
 }
 
 .background-cover {
-  // width: 100vw;
-  // height: 100vh;
-  // position: absolute;
-  // top: 0;
   display: block;
   object-fit: cover;
   width: 100%;
@@ -28,7 +20,13 @@
   z-index: -1;
 }
 
+.portrait {
+  display: block;
+  width: 25vw;
+  height: 35vw;
+  object-fit: cover;
+}
+
 .small-icon {
   width: 30px;
-  // height: ;
 }

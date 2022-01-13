@@ -3,6 +3,7 @@ export const initialState = {
   // baitActive: false,
   navLinkHovered: false,
   navImgSrc: '',
+  navLinkNumber: null,
   loading: false,
   leaving: false,
   prevPath: null,
@@ -52,6 +53,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         scrollValue: action.value,
+      }
+    case 'REVEAL_NAVLINK_NUMBER':
+      return {
+        ...state,
+        navLinkNumber: action.id
+      }
+    case 'HIDE_NAVLINK_NUMBER':
+      return {
+        ...state,
+        navLinkNumber: null,
       }
     case 'GET_ALL_PROJECTS_SUCCESS':
       return { ...state, loading: false }

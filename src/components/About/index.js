@@ -24,7 +24,7 @@ const About = ({ getArticles, articles, setPrevPath }) => {
         <div className='aboutItem flex' key={id}>
           <div className='aboutItem-img flex-column'>
             <img src={`http://localhost:1337${attributes.image.data.attributes.formats.small.url}`}
-              className='medium-img' loading='eager'
+              className='medium-img' loading='lazy'
             />
           </div>
           <p className='aboutDesc flex-column medium-size'>

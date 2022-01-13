@@ -6,30 +6,28 @@ const MenuToggler = ({ toggleMenuOpen, menuOpen }) => {
   const navigate = useNavigate(),
       { pathname } = useLocation();
 
-  function goBackWithMenu() {
-    navigate('/');
-    toggleMenuOpen();
-  }
+  // function goBackWithMenu() {
+  //   // navigate('/');
+  //   toggleMenuOpen();
+  // }
 
   return (
-    <div className='menuTogglerWrapper flex-center'>
       <button
-      className={pathname === '/' ? 'menuToggler button-reset flex-column mix-blend-diff' : 'menuToggler button-reset flex-column'}
-      onClick={goBackWithMenu}>
+        className={pathname === '/' ? 'menuToggler button-reset flex-column mix-blend-diff' : 'menuToggler button-reset flex-column'}
+        onClick={toggleMenuOpen}>
         <div className={menuOpen ? 'line rotated' : 'line'}
-          style={{ background: pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
+          style={{ background: !menuOpen && pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
         >
         </div>
         <div className={menuOpen ? 'line rotated' : 'line'}
-          style={{ background: pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
+          style={{ background: !menuOpen && pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
         >
         </div>
         <div className={menuOpen ? 'line rotated' : 'line'}
-          style={{ background: pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
+          style={{ background: !menuOpen && pathname.includes('/category/') || pathname === '/about' ? 'black' : 'white'}}
         >
         </div>
       </button>
-    </div>
   );
 }
 

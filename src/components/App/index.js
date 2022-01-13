@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from 'src/containers/Header'
 import Home from 'src/containers/Home'
 import Nav from 'src/containers/Nav'
@@ -9,6 +9,7 @@ import Project from 'src/containers/Project'
 import About from 'src/containers/About'
 import NavState from 'src/containers/NavState'
 import Footer from 'src/components/Footer'
+import HomeLink from 'src/containers/HomeLink'
 
 const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) =>
     <div className="app">
       <Nav />
       <MenuToggler />
+      <HomeLink />
       <Routes>
         <Route exact path='/'
           element={<>

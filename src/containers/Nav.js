@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   navLinkHovered: state.settings.navLinkHovered,
   navImgSrc: state.settings.navImgSrc,
   categories: state.categories.categories,
+  navLinkNumber: state.settings.navLinkNumber,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -22,6 +23,12 @@ const mapDispatchToProps = (dispatch) => ({
   hideNavLinkImg: () => {
     dispatch({ type: 'HIDE_NAVLINK_IMG' });
   },
+  revealNavLinkNumber: (id) => {
+    dispatch({ type: 'REVEAL_NAVLINK_NUMBER', id });
+  },
+  hideNavLinkNumber: () => {
+    dispatch({ type: 'HIDE_NAVLINK_NUMBER' })
+  }
   // setCategory: (category) => {
   //   dispatch({ type: 'SET_CATEGORY', category });
   // },

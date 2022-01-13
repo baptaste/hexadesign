@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-// import Slider from 'src/containers/Slider'
 import List from 'src/containers/List'
-import MenuToggler from 'src/containers/MenuToggler'
 import { getCategoryName, getCategoryThemes } from 'src/utils'
 import Transition from 'src/containers/Transition'
 
@@ -24,16 +22,22 @@ const Category = ({
 
   useEffect(() => {
     getCategoryProjects();
-  }, []);
+  }, [pathname]);
 
   let categoryName = getCategoryName(categoryName, categories, pathname),
-      currentThemes = getCategoryThemes(currentThemes, projects),
-      baseProjectPreviewShow = 4;
+      currentThemes = getCategoryThemes(currentThemes, projects);
+
+  // console.log('prevPath.includes(/[0-9]+/g) ? ', prevPath.includes('/category/', /[0-9]+/g));
 
   return (
     <div className='categoryWrapper flex-column-around'>
       {prevPath === '/' && <Transition type='vertical' />}
-      <MenuToggler />
+      {/* {prevPath && prevPath.includes('/category/', /[0-9]+/g) ? (
+        null
+      ) : (
+        <Transition type='vertical' />
+      )} */}
+
       <h1 className='categoryTitle medium-size text-bold'>{categoryName}.</h1>
       {currentThemes[0] !== undefined && (
          <div className='categoryThemes flex'>

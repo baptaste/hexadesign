@@ -15,7 +15,7 @@ const Showcase = ({ allProjects, setShowcaseProjectHover, showcaseProjectHover, 
   return (
     <div className='showcase flex-center-around' style={{ height: '150vh' }}>
         <div className='showcaseLeft flex-column'>
-          <img src={tabouret}
+          <img src={tabouret} loading='lazy'
             id={favoriteProjects[0]?.id}
             className={showcaseProjectHover && showcaseProjectId === favoriteProjects[0]?.id ? 'showcaseImg shadow' : 'showcaseImg'}
             style={{ transform: showcaseProjectHover && showcaseProjectId === favoriteProjects[0]?.id ?
@@ -38,7 +38,7 @@ const Showcase = ({ allProjects, setShowcaseProjectHover, showcaseProjectHover, 
           <div className='showcaseLine'></div>
         </div>
         <div className='showcaseRight flex-column'>
-          <img src={barres}
+          <img src={barres} loading='lazy'
             id={favoriteProjects[1]?.id}
             className={showcaseProjectHover && showcaseProjectId === favoriteProjects[1]?.id ? 'showcaseImg shadow' : 'showcaseImg'}
             style={{ transform: showcaseProjectHover && showcaseProjectId === favoriteProjects[1]?.id ?

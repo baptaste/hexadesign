@@ -3,6 +3,7 @@ import NavState from 'src/components/NavState';
 
 const mapStateToProps = (state) => ({
   scrollValue: state.settings.scrollValue,
+  menuOpen: state.settings.menuOpen,
 });
 
 const mapDispatchToProps = (dispatch) => ({

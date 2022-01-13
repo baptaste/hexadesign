@@ -19,7 +19,7 @@ const History = ({ categories, project, setLeaving, endLeaving }) => {
     setLeaving();
     setTimeout(() => {
       // navigate(-1);
-      navigate(`${categoryPath}`);
+      navigate(categoryPath);
       endLeaving();
     }, 2000)
     // clearCategory();

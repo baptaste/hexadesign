@@ -15,7 +15,9 @@
   //   font-family: 'Roboto', sans-serif;
   //   background: white;
   // }
-
+html {
+  scroll-behavior: smooth;
+}
 
 html::-webkit-scrollbar {
   width: 0px;
@@ -37,7 +39,6 @@ body {
   height: 100%;
   padding: 3rem 3rem 0;
   margin: 2rem auto 0;
-  // background: white;
   color: black;
 }
 

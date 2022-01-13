@@ -1,0 +1,16 @@
+.homeLink {
+  position: fixed;
+  bottom: 5rem;
+  left: 5.8rem;
+  flex-direction: column-reverse;
+  line-height: 1;
+  text-transform: uppercase;
+  mix-blend-mode: difference;
+  z-index: 1;
+
+   & > span {
+    display: inline-block;
+    color: white;
+    transform: rotate(270deg);
+   }
+}
