@@ -19,16 +19,7 @@ const List = ({
   filteredProjects,
 }) => {
 
-
   // gsap.registerPlugin(ScrollTrigger);
-
-  // let refElems = [];
-  // const [scrollState, setScrollState] = useState(0);
-
-  const myRef = useRef(null),
-        selected = gsap.utils.selector(myRef);
-        // gsap = useRef(null),
-
 
   // function animate() {
   //   let proxy = { skew: 0 },
@@ -51,138 +42,102 @@ const List = ({
   //     gsap.set(selected('.project-list-item'), {transformOrigin: 'right center', force3D: true});
   // }
 
-  // function listenScroll() {
-  //   window.addEventListener('scroll', () => (
-  //     setScrollState(document.documentElement.scrollTop)
-  //   ));
-  // }
+  const myRef = useRef(null);
+  const [scrollState, setScrollState] = useState(0);
+  const [refElems, setRefElems] = useState([]);
+
+  function listenScroll() {
+    window.addEventListener('scroll', () => {
+      setScrollState(Math.round(document.documentElement.scrollTop))
+    });
+  }
 
   useEffect(() => {
-    console.log('MYREF : ', myRef.current);
-    console.log('selected : ', selected(".project-list-item"));
-    // TODO anim on scroll
-    gsap.from(selected(".project-list-item"), {
-        opacity: 0,
-        // scale: 1,
-        duration: 3,
-        stagger: 0.5,
-        y: 500,
-        ease: 'expo',
-        repeat: 0,
-        // onComplete: () => console.log('anim FROM ended')
-      });
+    /* 1st useEffect : set refElems in state */
+    setRefElems([...myRef.current.children]);
+  }, [projects]);
 
-    gsap.to(selected(".project-list-item"), {
+  useEffect(() => {
+    /* 2nd useEffect : set scroll value in state & launch
+    GSAP animation on current ref matching scrollState */
+    listenScroll();
+
+    const scrollMatches = refElems.map((elem, i) => scrollState > (elem.offsetTop - 300) && elem);
+    const selected = gsap.utils.selector(scrollMatches);
+
+    gsap.to(selected(scrollMatches), {
       opacity: 1,
-      // scale: 1,
-      duration: 3,
-      stagger: 0.5,
-      y: 0,
-      ease: 'expo',
+      duration: 2,
+      // stagger: 0.5,
+      y: -100,
+      ease: 'power4.out',
       repeat: 0,
-      // onComplete: () => console.log('anim TO ended')
     });
 
-    // TEST ------------------- TEST
-    // listenScroll();
-
-    // console.log('scrollState : ', scrollState);
-    // if (myRef.current) {
-    //   refElems = [...selected(myRef)[0].current.children]
-    //   refElems = refElems.map((el, i) => {
-    //     console.log(`elem ${i} offsetTop : `, el.offsetTop)
-    //     return el = {
-    //       refElem: i,
-    //       position: el.offsetTop
-    //     }
-    //   });
-
-    //   console.log('refElems position : ', refElems.position);
-    //   console.log('myRef scrolltop : ', myRef.scrollTop);
-
-    //   refElems.forEach((el, i) => {
-    //     console.log('el.position : ', el.position);
-    //     console.log('scrollState : ', Math.round(scrollState));
-    //     if (Math.round(scrollState) === el.position[i]) {
-    //       console.log('BINGO scrollState === el.position');
-    //       gsap.from(el,
-    //       {
-    //         opacity: 0,
-    //         y: -50,
-    //       });
-    //       gsap.to(el,
-    //       {
-    //         opacity: 1,
-    //         y: 0,
-    //       });
-    //     }
-    //   })
-    // }
-  }, [projects]);
+  }, [scrollState])
 
   return (
     <div role='list' className='project-list flex-wrap' ref={myRef}>
-      {/* <NavState axis='lateral-axis' /> */}
-          {projects !== [] && filteredProjects.length === 0 ? (
-            projects.map(({ id, attributes }) => (
-              loading ? <Loader key={id} width='650px' height='594px' gapX='50' gapY='100' /> : (
-                <div role='listitem' className='project-list-item' key={id}
-                  onMouseOver={() => revealProjectInfo(id)}
-                  onMouseOut={hideProjectInfo}
-                  >
-                  <Link to={`${id}/`} className='project-list-link flex-column-between'>
-                    <div className='project-list-item__text flex-center-between'>
-                      <div className='normal-size text-bold text-center'>
-                        {attributes.name}
-                      </div>
-                        {attributes.themes.data && attributes.themes.data.map((theme) => (
-                          <span key={theme.id} className='small-size'>{theme.attributes.name}</span>
-                        ))}
-                    </div>
-                    <img
-                      src={`http://localhost:1337${attributes.image.data[0].attributes.formats.small.url}`}
-                      loading='lazy'
-                      className='portrait project-list-img'
-                    />
-                    <div className={!menuOpen && infoIdRevealed === id ? 'see-project flex' : 'see-project no-opacity flex'}>
-                      <p className='see-project-text'>Voir le projet</p>
-                      <img src={rightArrow} className='small-icon' />
-                    </div>
-                  </Link>
+      {projects !== [] && filteredProjects.length === 0 ? (
+        projects.map(({ id, attributes }) => (
+          loading ? <Loader key={id} width='650px' height='594px' gapX='50' gapY='100' /> : (
+            <div role='listitem' className='project-list-item' key={id}
+              onMouseOver={() => revealProjectInfo(id)}
+              onMouseOut={hideProjectInfo}
+              >
+              <Link to={`${id}/`} className='project-list-link flex-column-between'>
+                <div className='project-list-item__text flex-center-between'>
+                  <div className='normal-size text-bold text-center'>
+                    {attributes.name}
+                  </div>
+                    {attributes.themes.data && attributes.themes.data.map((theme) => (
+                      <span key={theme.id} className='small-size'>{theme.attributes.name}</span>
+                    ))}
                 </div>
-              )
-            ))
-          ) : (
-            filteredProjects.map(({ id, attributes }) => (
-              loading ? <Loader width={infoIdRevealed === id ? '410px' : '185px'} height='368px' /> : (
-                <div role='listitem' className='project-list-item' key={id}
-                  onMouseOver={() => revealProjectInfo(id)}
-                  onMouseOut={hideProjectInfo}
-                  >
-                  <Link to={`${id}/`} className='project-list-link flex-column-between'>
-                    <div className='project-list-item__text flex-center-between'>
-                      <div className='normal-size text-bold text-center'>
-                        {attributes.name}
-                      </div>
-                        {attributes.themes.data && attributes.themes.data.map((theme) => (
-                          <span key={theme.id} className='small-size'>{theme.attributes.name}</span>
-                        ))}
-                    </div>
-                    <img
-                      src={`http://localhost:1337${attributes.image.data[0].attributes.formats.small.url}`}
-                      loading='lazy'
-                      className='portrait project-list-img'
-                    />
-                    <div className={!menuOpen && infoIdRevealed === id ? 'see-project flex' : 'see-project no-opacity flex'}>
-                      <p className='see-project-text'>Voir le projet</p>
-                      <img src={rightArrow} className='small-icon' />
-                    </div>
-                  </Link>
+                <img
+                  src={`http://localhost:1337${attributes.image.data[0].attributes.formats.small.url}`}
+                  loading='lazy'
+                  className='portrait project-list-img'
+                />
+                <div className={!menuOpen && infoIdRevealed === id ? 'see-project flex' : 'see-project no-opacity flex'}>
+                  <p className='see-project-text'>Voir le projet</p>
+                  <img src={rightArrow} className='small-icon' />
                 </div>
-              )
-            ))
-          )}
-      </div>
+              </Link>
+            </div>
+          )
+        ))
+      ) : (
+        filteredProjects.map(({ id, attributes }) => (
+          loading ? <Loader width={infoIdRevealed === id ? '410px' : '185px'} height='368px' /> : (
+            <div role='listitem' className='project-list-item' key={id}
+              onMouseOver={() => revealProjectInfo(id)}
+              onMouseOut={hideProjectInfo}
+              >
+              <Link to={`${id}/`} className='project-list-link flex-column-between'>
+                <div className='project-list-item__text flex-center-between'>
+                  <div className='normal-size text-bold text-center'>
+                    {attributes.name}
+                  </div>
+                    {attributes.themes.data && attributes.themes.data.map((theme) => (
+                      <span key={theme.id} className='small-size'>{theme.attributes.name}</span>
+                    ))}
+                </div>
+                <img
+                  src={`http://localhost:1337${attributes.image.data[0].attributes.formats.small.url}`}
+                  loading='lazy'
+                  className='portrait project-list-img'
+                />
+                <div className={!menuOpen && infoIdRevealed === id ? 'see-project flex' : 'see-project no-opacity flex'}>
+                  <p className='see-project-text'>Voir le projet</p>
+                  <img src={rightArrow} className='small-icon' />
+                </div>
+              </Link>
+            </div>
+          )
+        ))
+      )}
+    </div>
   );
 }
 

@@ -38,31 +38,33 @@ const Category = ({
         <Transition type='vertical' />
       )} */}
 
-      <h1 className='categoryTitle medium-size text-bold'>{categoryName}.</h1>
-      {currentThemes[0] !== undefined && (
-         <div className='categoryThemes flex'>
-         {currentThemes.map((theme, i) =>
-          <div
-            key={i}
-            onClick={filteredTheme !== theme ? () => getFilteredProjects(theme) : null}
-            className={filteredTheme === theme ?
-              'themeTag themeTag-active flex-center small-size pointer second-background'
-              : 'themeTag flex-center small-size pointer second-background'}
-            >
-              <p className={filteredTheme === theme ? 'themeTagText-active' : 'themeTagText'}>{theme}</p>
-              {filteredProjects.length !== 0 && filteredTheme === theme &&
-                <div onClick={clearFilteredProjects} className='closeFilter-btn flex-center pointer'>
-                  <span className='leftLine'></span>
-                  <span className='rightLine'></span>
-                </div>
-              }
-            </div>
-          )}
-       </div>
-      )}
-
+      <div className='categoryHeading text-center'
+      style={{marginBottom: currentThemes[0] !== undefined ? '12rem' : '5rem'}}>
+        <h1 className='categoryTitle medium-size text-bold'>{categoryName}.</h1>
+        {currentThemes[0] !== undefined && (
+          <div className='categoryThemes flex'>
+          {currentThemes.map((theme, i) =>
+            <div
+              key={i}
+              onClick={filteredTheme !== theme ? () => getFilteredProjects(theme) : null}
+              className={filteredTheme === theme ?
+                'themeTag themeTag-active flex-center small-size pointer second-background'
+                : 'themeTag flex-center small-size pointer second-background'}
+              >
+                <p className={filteredTheme === theme ? 'themeTagText-active' : 'themeTagText'}>{theme}</p>
+                {filteredProjects.length !== 0 && filteredTheme === theme &&
+                  <div onClick={clearFilteredProjects} className='closeFilter-btn flex-center pointer'>
+                    <span className='leftLine'></span>
+                    <span className='rightLine'></span>
+                  </div>
+                }
+              </div>
+            )}
+        </div>
+        )}
+      </div>
       {/* <div className='sliderContainer flex-center-between'> */}
-        {projects !== [] && <List categoryName={categoryName} />}
+        {projects !== [] && <List />}
 
         {/* {!allSliderPreviewsRevealed && filteredProjects.length === 0 && projects.length > baseProjectPreviewShow && (
           <button
