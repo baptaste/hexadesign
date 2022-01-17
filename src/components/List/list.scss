@@ -11,10 +11,18 @@
     width: fit-content;
     margin: 0 3.5rem 7rem;
     opacity: 0;
+    transform: translate3d(0, 150px, 0);
+    transition: transform 500ms ease-out, opacity 500ms ease;
 
     &:nth-child(1),
     &:nth-child(2) {
       opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+
+    &.intersected {
+      opacity: 1;
+      transform: translate3d(0,0,0);
     }
 
     &:nth-child(even) {

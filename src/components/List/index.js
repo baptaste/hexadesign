@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState, } from 'react'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Loader from 'src/components/Loader'
 // import NavState from 'src/containers/NavState'
 
@@ -19,69 +17,32 @@ const List = ({
   filteredProjects,
 }) => {
 
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // function animate() {
-  //   let proxy = { skew: 0 },
-  //       skewSetter = gsap.quickSetter(selected('.project-list-item'), 'skewY', 'deg'), // fast
-  //       clamp = gsap.utils.clamp(-10, 10); // don't let the skew go beyond 20 degrees.
-
-  //     ScrollTrigger.create({
-  //       onUpdate: (self) => {
-  //         let skew = clamp(self.getVelocity() / -300);
-  //         /* only do something if the skew is MORE severe. Remember, we're always tweening back to 0,
-  //         so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly
-  //         rather than jumping to the smaller skew. */
-  //         if (Math.abs(skew) > Math.abs(proxy.skew)) {
-  //           proxy.skew = skew;
-  //           gsap.to(proxy, {skew: 0, duration: 1.2, ease: 'power3', overwrite: true, onUpdate: () => skewSetter(proxy.skew)});
-  //         }
-  //       }
-  //     });
-  //     // make the right edge 'stick' to the scroll bar. force3D: true improves performance
-  //     gsap.set(selected('.project-list-item'), {transformOrigin: 'right center', force3D: true});
-  // }
-
-  const myRef = useRef(null);
-  const [scrollState, setScrollState] = useState(0);
-  const [refElems, setRefElems] = useState([]);
-
-  function listenScroll() {
-    window.addEventListener('scroll', () => {
-      setScrollState(Math.round(document.documentElement.scrollTop))
-    });
-  }
+  const itemsRef = useRef(null)
 
   useEffect(() => {
-    /* 1st useEffect : set refElems in state */
-    setRefElems([...myRef.current.children]);
-  }, [projects]);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('intersected', entry.isIntersecting)
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target)
+        }
+      })},
+      {
+        threshold: 0.5
+      }
+    )
 
-  useEffect(() => {
-    /* 2nd useEffect : set scroll value in state & launch
-    GSAP animation on current ref matching scrollState */
-    listenScroll();
-
-    const scrollMatches = refElems.map((elem, i) => scrollState > (elem.offsetTop - 300) && elem);
-    const selected = gsap.utils.selector(scrollMatches);
-
-    gsap.to(selected(scrollMatches), {
-      opacity: 1,
-      duration: 2,
-      // stagger: 0.5,
-      y: -100,
-      ease: 'power4.out',
-      repeat: 0,
-    });
-
-  }, [scrollState])
+    itemsRef.current.children.forEach(elem => {
+      observer.observe(elem)
+    })
+  }, [projects, itemsRef])
 
   return (
-    <div role='list' className='project-list flex-wrap' ref={myRef}>
+    <div role='list' className='project-list flex-wrap' ref={itemsRef}>
       {projects !== [] && filteredProjects.length === 0 ? (
-        projects.map(({ id, attributes }) => (
+        projects.map(({ id, attributes }, index) => (
           loading ? <Loader key={id} width='650px' height='594px' gapX='50' gapY='100' /> : (
-            <div role='listitem' className='project-list-item' key={id}
+            <div role='listitem' className='project-list-item' key={id} id={`list-item-${index+1}`}
               onMouseOver={() => revealProjectInfo(id)}
               onMouseOut={hideProjectInfo}
               >
