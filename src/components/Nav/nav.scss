@@ -104,3 +104,26 @@
   opacity: .7;
   // transform: translateX(0);
 }
+
+
+@media screen and (max-width: 700px) {
+  .menu {
+    padding: 0;
+
+    .nav {
+      width: 100%;
+      padding-left: 1rem;
+
+      .navLink-number {
+        opacity: .2;
+        padding-right: .5rem;
+        font-size: .8rem;
+        transform: translateY(-10px);
+      }
+    }
+    .previewer {
+      display: none;
+    }
+  }
+
+}

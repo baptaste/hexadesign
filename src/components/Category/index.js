@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import List from 'src/containers/List'
 import { getCategoryName, getCategoryThemes } from 'src/utils'
 import Transition from 'src/containers/Transition'
+import NavState from 'src/containers/NavState'
 
 import './category.scss'
 
@@ -31,6 +32,7 @@ const Category = ({
 
   return (
     <div className='categoryWrapper flex-column-around'>
+      <NavState axis='lateral-axis' />
       {prevPath === '/' && <Transition type='vertical' />}
       {/* {prevPath && prevPath.includes('/category/', /[0-9]+/g) ? (
         null

@@ -4,6 +4,7 @@ import MenuToggler from 'src/containers/MenuToggler'
 import History from 'src/containers/History'
 import Transition from 'src/containers/Transition'
 import NavState from 'src/containers/NavState'
+import cover from 'src/assets/images/project-cover.jpg'
 import './project.scss'
 
 const Project = ({ getProject, project, setPrevPath }) => {
@@ -27,6 +28,16 @@ const Project = ({ getProject, project, setPrevPath }) => {
       <Transition type='lateral' title={project.attributes.name} text={project.attributes.description} content={projectThemes} />
       <div className='left flex'>
         <div className='flex-column'>
+        {/* mobile-section */}
+          {/* 1st project img for cover
+          <img src={`http://localhost:1337${project.attributes.image.data[0].attributes.formats.small.url}`}
+            className='project-cover' />*/}
+          <img src={cover} className='project-cover' />
+          <h1 className='page-title project-title-mob text-center'>{project.attributes.name}</h1>
+          <p className='project-description'>
+            {project.attributes.description}
+          </p>
+        {/* mobile-section */}
           {project.attributes.image.data.map((img) => (
             <img key={img.id} src={`http://localhost:1337${img.attributes.formats.small.url}`} className='projectImg' />
           ))}

@@ -54,7 +54,7 @@ const Nav = ({
             >
               <div className='flex-align-center'>
                 <em className={navLinkNumber === id ? 'navLink-number reveal normal-size' : 'navLink-number normal-size'}>
-                  {index + 1}.
+                  0{index + 1}.
                 </em>
                 <p className='navLink-name'
                   onMouseEnter={() => revealNavLinkNumber(id)}

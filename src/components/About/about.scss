@@ -65,3 +65,51 @@
     justify-content: flex-end;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .aboutWrapper {
+    .aboutBackground {
+      width: 70vw;
+      position: relative;
+      top: -1rem;
+      left: 20%;
+      overflow: hidden;
+      padding-left: 0;
+    }
+
+    .aboutTitle {
+      width: 100%;
+      top: 5rem;
+      left: .5rem;
+    }
+
+    .aboutContent, .aboutItem {
+      display: flex;
+      flex-direction: column;
+    }
+
+    // .aboutContent {
+    //   gap: 5rem 0;
+    // }
+
+    .aboutItem {
+      width: 100%;
+      // min-height: 100vh;
+    }
+
+    .aboutItem-img  {
+      > img {
+        height: 400px;
+      }
+    }
+
+    .aboutDesc {
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    // .aboutItem {
+    //   height: 100vh;
+    // }
+  }
+}

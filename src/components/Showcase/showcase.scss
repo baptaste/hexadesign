@@ -55,3 +55,15 @@
 .showcaseProject > p {
   margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 700px) {
+  .showcase {
+    height: 100% !important;
+    flex-direction: column;
+    margin-bottom: 5rem;
+
+    .showcaseLeft, .showcaseRight {
+      width: 100%;
+    }
+  }
+}

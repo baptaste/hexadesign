@@ -31,10 +31,10 @@ const History = ({ categories, project, setLeaving, endLeaving }) => {
   return (
     <div className='historyWrapper'>
       <div className='historySelects flex-center-around'>
-        <button type='button' className='normal-size button-reset text-bold' onClick={goToHome}>
+        <button type='button' className='select-home normal-size button-reset text-bold' onClick={goToHome}>
           Accueil
         </button>
-        <i className='fas fa-angle-right pointer' onClick={goToHome} />
+        <i className='select-home-chevron fas fa-angle-right pointer' onClick={goToHome} />
         <button type='button' className='normal-size button-reset text-bold' onClick={goBackToCategory}>
           {categoryName}
         </button>

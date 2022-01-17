@@ -1,36 +1,81 @@
 @use 'src/styles/vars.scss';
 
-.hexaLogo {
-  width: 450px;
-  height: auto;
-  // opacity: .7;
-  transition: opacity 150ms ease-in-out;
-}
+@media screen and (min-width: 700px) {
+  .hexaLogo {
+    width: 450px;
+    height: auto;
+    // opacity: .7;
+    transition: opacity 150ms ease-in-out;
+  }
 
-.header {
-  position: relative;
-  height: vars.$headerHeight;
-  width: 100%;
-  // padding-bottom: 3rem;
-}
+  .header {
+    position: relative;
+    height: vars.$headerHeight;
+    width: 100%;
+    // padding-bottom: 3rem;
+  }
 
-.hero {
-  height: 70%;
-  z-index: -1;
-}
+  .hero {
+    height: 70%;
+    z-index: -1;
+  }
 
-.hero-title {
-  > span {
-    display: block;
-    overflow: hidden;
-
+  .hero-title {
+    > span:first-child {
+      font-weight: 500;
+    }
     > span {
       display: block;
-      animation: spanFadeIn 500ms ease forwards;
+      overflow: hidden;
+
+      > span {
+        display: block;
+        animation: spanFadeIn 500ms ease forwards;
+      }
     }
+  }
+
+  .hero-subtitle {
+    letter-spacing: .5rem;
   }
 }
 
-.hero-subtitle {
-  letter-spacing: .5rem;
+
+@media screen and (max-width: 700px) {
+  .hexaLogo {
+    width: 250px;
+  }
+  .header {
+    width: 100%;
+    height: 80vh;
+
+    .hero {
+      width: 100%;
+      height: 100%;
+      flex-direction: column-reverse;
+    }
+
+    .hero-title-mob {
+      width: 100%;
+      > span:first-child {
+        display: block;
+        overflow: hidden;
+        font-weight: 300;
+
+        > span {
+          display: block;
+          animation: spanFadeIn .5s 500ms ease forwards;
+        }
+      }
+      > span:last-child {
+        display: block;
+        overflow: hidden;
+
+        > span {
+          display: block;
+          animation: spanFadeIn .7s 800ms ease forwards;
+        }
+      }
+    }
+  }
 }

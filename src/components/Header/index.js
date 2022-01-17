@@ -7,10 +7,25 @@ const Header = ({ menuOpen }) => {
     <header className='header flex-column'>
       <div className='hero flex-column-around'>
         <img src={hexaLogo} className={menuOpen ? 'hexaLogo no-opacity' : 'hexaLogo'} />
-        <h1 className='hero-title'>
-          {/* <span><span className={menuOpen ? 'no-opacity' : 'hero-subtitle second-font text-bold extra-size'}>Menuiserie</span></span> */}
-          <span><span className={menuOpen ? 'no-opacity' : ''}>HexaDesign</span></span>
-          {/* <span><span className={menuOpen ? 'no-opacity' : 'hero-subtitle second-font text-bold text-right extra-size'}>Ebenisterie</span></span> */}
+        <h1 className='hero-title header-title flex'>
+          <span>
+            <span className={menuOpen ? 'no-opacity' : ''}>hexa</span>
+          </span>
+          <span>
+            <span className={menuOpen ? 'no-opacity' : ''}>design</span>
+          </span>
+        </h1>
+        <h1 className='hero-title-mob'>
+          <span>
+            <span className={menuOpen ? 'no-opacity' : ''}>
+            hexa
+            </span>
+          </span>
+          <span>
+            <span className={menuOpen ? 'no-opacity' : ''}>
+            design
+            </span>
+          </span>
         </h1>
       </div>
     </header>

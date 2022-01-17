@@ -11,4 +11,34 @@
   .projectImg {
     margin-bottom: 3rem;
   }
+
+  .project-title-mob, .project-cover, .project-description {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .left {
+    width: 100%;
+
+   .project-title-mob, .project-cover, .project-description, .projectImg {
+      display: block;
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+
+    // .project-cover {
+
+    // }
+
+    // .project-title-mob {
+    //   display: block;
+    //   margin-bottom: 3rem;
+    // }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  }
 }

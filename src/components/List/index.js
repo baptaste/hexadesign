@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState, } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from 'src/components/Loader'
-// import NavState from 'src/containers/NavState'
-
 import rightArrow from 'src/assets/images/right-arrow.png'
 import './list.scss'
 
@@ -35,7 +33,7 @@ const List = ({
     itemsRef.current.children.forEach(elem => {
       observer.observe(elem)
     })
-  }, [projects, itemsRef])
+  }, [projects, filteredProjects, itemsRef])
 
   return (
     <div role='list' className='project-list flex-wrap' ref={itemsRef}>
