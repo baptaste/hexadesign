@@ -22,21 +22,15 @@ const HomeLink = ({ toggleMenuOpen, menuOpen }) => {
   }, [])
 
   return (
-    <Link to='/'
+    <Link
+      to='/'
       className={pathname === '/' && !menuOpen ?
-        (isVisible ? 'homeLink flex-column' : 'homeLink notVisible flex-column')
-        : ('homeLink flex-column')}
-      onClick={menuOpen && toggleMenuOpen}>
-      <span className='small-size text-bold'>h</span>
-      <span className='small-size text-bold'>e</span>
-      <span className='small-size text-bold'>x</span>
-      <span className='small-size text-bold'>a</span>
-      <span className='small-size text-bold'>d</span>
-      <span className='small-size text-bold'>e</span>
-      <span className='small-size text-bold'>s</span>
-      <span className='small-size text-bold'>i</span>
-      <span className='small-size text-bold'>g</span>
-      <span className='small-size text-bold'>n</span>
+      (isVisible ? 'homeLink flex' : 'homeLink notVisible flex')
+      : ('homeLink flex')}
+      onClick={menuOpen && toggleMenuOpen}
+    >
+      <span className='small-size text-bold'>hexa</span>
+      <span className='small-size'>design</span>
     </Link>
   );
 }

@@ -7,7 +7,6 @@ export const initialState = {
   infoIdRevealed: null,
   firstProject: null,
   allSliderPreviewsRevealed: false,
-  // projectId: null,
   project: null,
   showcaseProjectHover: false,
   showcaseProjectId: null,
@@ -25,11 +24,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         allProjects: [],
       }
-    // case 'CLEAR_PROJECTS':
-    //   return {
-    //     ...state,
-    //     allProjects: [],
-    //   }
     case 'GET_CATEGORY_PROJECTS_SUCCESS':
       return {
         ...state,
@@ -84,13 +78,6 @@ const reducer = (state = initialState, action = {}) => {
        filteredProjects: [],
        filteredTheme: '',
      }
-    // case 'GET_PROJECT_ID': {
-    //   console.log('GET_PROJECT_ID window.location.pathname : ', window.location.pathname)
-    //   return {
-    //     ...state,
-    //     projectId: action.projectId,
-    //   }
-    // }
     case 'GET_PROJECT_SUCCESS':
       return {
         ...state,

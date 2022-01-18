@@ -4,6 +4,7 @@ import About from 'src/components/About';
 const mapStateToProps = (state) => ({
   articles: state.articles.articles,
   prevPath: state.settings.prevPath,
+  menuOpen: state.settings.menuOpen,
 });
 
 const mapDispatchToProps = (dispatch) => ({

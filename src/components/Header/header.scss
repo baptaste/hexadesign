@@ -11,13 +11,17 @@
   .header {
     position: relative;
     height: vars.$headerHeight;
-    width: 100%;
+    width: 100vw;
     // padding-bottom: 3rem;
   }
 
   .hero {
     height: 70%;
     z-index: -1;
+  }
+
+  .hero-mob {
+    display: none;
   }
 
   .hero-title {
@@ -50,32 +54,67 @@
     height: 80vh;
 
     .hero {
+      display: none;
+    }
+
+    .hero-mob {
       width: 100%;
-      height: 100%;
-      flex-direction: column-reverse;
+      height: 80%;
+      z-index: -1;
+      padding: 4rem 0 0;
+
+      > .hexaLogo {
+        display: block;
+        margin: 0 auto;
+      }
     }
 
     .hero-title-mob {
       width: 100%;
-      > span:first-child {
-        display: block;
-        overflow: hidden;
+
+      &:first-child {
         font-weight: 300;
 
         > span {
           display: block;
-          animation: spanFadeIn .5s 500ms ease forwards;
+          overflow: hidden;
+
+          > span {
+            display: block;
+            animation: spanFadeIn .3s 500ms ease forwards;
+          }
         }
       }
-      > span:last-child {
-        display: block;
-        overflow: hidden;
+      &:last-child {
+        text-align: right;
 
         > span {
           display: block;
-          animation: spanFadeIn .7s 800ms ease forwards;
+          overflow: hidden;
+
+          > span {
+            display: block;
+            animation: spanFadeIn .5s 600ms ease forwards;
+          }
         }
       }
+      // > span:first-child {
+      //   display: block;
+      //   overflow: hidden;
+      //   > span {
+      //     display: block;
+      //     animation: spanFadeIn .5s 500ms ease forwards;
+      //   }
+      // }
+      // > span:last-child {
+      //   display: block;
+      //   overflow: hidden;
+
+      //   > span {
+      //     display: block;
+      //     animation: spanFadeIn .7s 800ms ease forwards;
+      //   }
+      // }
     }
   }
 }

@@ -1,35 +1,38 @@
 .homeLink {
   position: fixed !important;
-  bottom: 5rem;
-  left: 5.8rem;
-  flex-direction: column-reverse;
+  // bottom: 5rem;
+  top: 3rem;
+  // left: 5.8rem;
+  left: 3.5rem;
   line-height: 1;
-  text-transform: uppercase;
   mix-blend-mode: difference;
   opacity: 1;
-  transition: opacity 150ms ease, transform 400ms ease-out;
+  transition: opacity 150ms ease, transform 300ms ease-out;
   z-index: 1;
 
    & > span {
     display: inline-block;
+    font-size: 1.3rem;
     color: white;
-    transform: rotate(270deg);
+   }
+
+   & > span:not(.text-bold) {
+     font-weight: 100;
    }
 
    &.notVisible {
      opacity: 0;
-     transform: translate3d(0, 150px, 0);
+     transform: translate3d(0, 50px, 0);
      transform-origin: bottom;
    }
 }
 
 @media screen and (max-width: 700px) {
   .homeLink {
-    top: 3rem;
+    top: 2rem;
     left: 1rem;
     width: fit-content;
     height: fit-content;
-    flex-direction: row;
 
     & > span {
       font-size: 1rem;

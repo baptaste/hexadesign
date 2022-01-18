@@ -5,7 +5,7 @@ import NavState from 'src/containers/NavState'
 import './about.scss'
 import aboutBackground from 'src/assets/images/about-background.jpg'
 
-const About = ({ getArticles, articles, setPrevPath }) => {
+const About = ({ getArticles, articles, setPrevPath, menuOpen }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const About = ({ getArticles, articles, setPrevPath }) => {
 
   return (
     <div className='aboutWrapper flex-column'>
-      <img src={aboutBackground} className='aboutBackground background-cover' />
+      <img src={aboutBackground} className={menuOpen ? 'aboutBackground background-cover no-opacity' : 'aboutBackground background-cover'} />
       <Transition type='vertical' />
       <NavState axis='lateral-axis' />
       <h1 className='aboutTitle hero-title second-font'>À propos</h1>

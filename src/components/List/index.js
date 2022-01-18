@@ -10,7 +10,6 @@ const List = ({
   infoIdRevealed,
   revealProjectInfo,
   hideProjectInfo,
-  allSliderPreviewsRevealed,
   menuOpen,
   filteredProjects,
 }) => {
@@ -39,7 +38,7 @@ const List = ({
     <div role='list' className='project-list flex-wrap' ref={itemsRef}>
       {projects !== [] && filteredProjects.length === 0 ? (
         projects.map(({ id, attributes }, index) => (
-          loading ? <Loader key={id} width='650px' height='594px' gapX='50' gapY='100' /> : (
+          loading ? <Loader key={id} width='25vw' height='30vw' gapX='50' gapY='100' /> : (
             <div role='listitem' className='project-list-item' key={id} id={`list-item-${index+1}`}
               onMouseOver={() => revealProjectInfo(id)}
               onMouseOut={hideProjectInfo}
@@ -68,7 +67,7 @@ const List = ({
         ))
       ) : (
         filteredProjects.map(({ id, attributes }) => (
-          loading ? <Loader width={infoIdRevealed === id ? '410px' : '185px'} height='368px' /> : (
+          loading ? <Loader key={id} width='25vw' height='30vw' gapX='50' gapY='100' /> : (
             <div role='listitem' className='project-list-item' key={id}
               onMouseOver={() => revealProjectInfo(id)}
               onMouseOut={hideProjectInfo}

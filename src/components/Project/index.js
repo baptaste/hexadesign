@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import MenuToggler from 'src/containers/MenuToggler'
 import History from 'src/containers/History'
 import Transition from 'src/containers/Transition'
 import NavState from 'src/containers/NavState'
@@ -23,7 +22,6 @@ const Project = ({ getProject, project, setPrevPath }) => {
   return (
     project && (
     <div className='projectWrapper'>
-      <MenuToggler />
       <History />
       <Transition type='lateral' title={project.attributes.name} text={project.attributes.description} content={projectThemes} />
       <div className='left flex'>
