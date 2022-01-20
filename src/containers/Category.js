@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Category from 'src/components/Category';
 
 const mapStateToProps = (state) => ({
-  category: state.categories.category,
+  categoryPath: state.categories.categoryPath,
   allProjects: state.projects.allProjects,
   projects: state.projects.projects,
   filteredProjects: state.projects.filteredProjects,
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
   categories: state.categories.categories,
   projectInfoRevealed: state.projects.projectInfoRevealed,
   infoIdRevealed: state.projects.infoIdRevealed,
-  allSliderPreviewsRevealed: state.projects.allSliderPreviewsRevealed,
+  // allSliderPreviewsRevealed: state.projects.allSliderPreviewsRevealed,
   prevPath: state.settings.prevPath,
 });
 
@@ -35,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
   clearFilteredProjects: () => {
     dispatch({ type: 'CLEAR_FILTERED_PROJECTS' })
   },
+  setCurrentCategory: (path) => {
+    dispatch({ type: 'SET_CURRENT_CATEGORY', path })
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category);

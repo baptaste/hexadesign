@@ -8,6 +8,7 @@ import Project from 'src/containers/Project'
 import About from 'src/containers/About'
 import Footer from 'src/components/Footer'
 import HomeLink from 'src/containers/HomeLink'
+import NavState from 'src/containers/NavState'
 
 const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const App = ({ getAllCategories, getAllProjects, getAllThemes, setPrevPath }) =>
   return (
     <div className="app">
       <Nav />
+      <NavState axis='lateral-axis' />
       <MenuToggler />
       <HomeLink />
       <Routes>

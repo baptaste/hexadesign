@@ -25,7 +25,7 @@ const projectsMiddleware = (store) => (next) => async (action) => {
 
       const filteredProjectsWithURL = projectsData.filter((project) => (
         // project.attributes.categories.data[0].attributes.name === state.categories.category
-        project.attributes.categories.data[0].attributes.path === pageURL
+        project.attributes.categories.data[0].attributes.path === pageURL || pageURL.includes(project.attributes.categories.data[0].attributes.path)
       ));
 
       const firstProjectData = filteredProjectsWithURL[0];

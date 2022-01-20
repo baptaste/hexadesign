@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './nav-state.scss'
 
 const NavState = ({ axis, setScrollValue, scrollValue, menuOpen }) => {
+  const { pathname } = useLocation();
+
   function onScroll() {
     const scrolled = document.documentElement.scrollTop;
     const maxHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -10,11 +13,8 @@ const NavState = ({ axis, setScrollValue, scrollValue, menuOpen }) => {
   }
 
   useEffect(() => {
-    onScroll();
-  }, []);
-
-  window.addEventListener('scroll', onScroll);
-
+    window.addEventListener('scroll', onScroll);
+  }, [pathname]);
 
   return (
     !menuOpen && (
@@ -26,17 +26,15 @@ const NavState = ({ axis, setScrollValue, scrollValue, menuOpen }) => {
           </div>
         )}
         {axis === 'lateral-axis' && (
-          <div className='navState-lateral'>
+          <div className={pathname.match(/[0-9]+/g) ? 'navState-lateral navState-off' : 'navState-lateral'}>
             <div className={`navState ${axis}`}
-              style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)` }}
+              style={{ transform: `scale(${Math.floor(scrollValue)}%, 1)`}}
             >
             </div>
           </div>
         )}
       </>
     )
-
-
   );
 }
 

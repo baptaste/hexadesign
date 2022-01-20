@@ -1,5 +1,4 @@
 import React from 'react'
-import NavState from 'src/containers/NavState'
 import Header from 'src/containers/Header'
 import Showcase from 'src/containers/Showcase'
 import './home.scss'
@@ -7,7 +6,6 @@ import './home.scss'
 const Home = () => {
   return (
     <main className='home flex-column'>
-      <NavState axis='lateral-axis' />
       <Header />
       <Showcase />
       <section className='services'>

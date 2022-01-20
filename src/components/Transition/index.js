@@ -4,12 +4,12 @@ import wood from 'src/assets/images/wood-icon-light.png'
 
 const Transition = ({ type, title, text, content, leaving }) => {
 
-  function getRandomInt(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
-  }
+  // function getRandomInt(min, max) {
+  //   return Math.round(Math.random() * (max - min) + min);
+  // }
 
-  const randomInt = getRandomInt(1, 3),
-        randomLogo = require(`src/assets/images/hexalogo${randomInt}.jpg`);
+  // const randomInt = getRandomInt(1, 3),
+  //       randomLogo = require(`src/assets/images/hexalogo${randomInt}.jpg`);
   let animDuration;
 
   function setAnimDuration() {
@@ -51,7 +51,7 @@ const Transition = ({ type, title, text, content, leaving }) => {
     {type === 'vertical' && (
       <div className={`transition ${type} flex-center-around`}
         style={{animation: `vertical-In ${animDuration} cubic-bezier(.92,0,.49,.72) forwards`}}>
-          <img key={randomLogo.default} src={randomLogo.default} alt={'HexaDesign logo'} className='smallLogo' />
+          {/* <img key={randomLogo.default} src={randomLogo.default} alt={'HexaDesign logo'} className='smallLogo' /> */}
       </div>
     )}
     </>

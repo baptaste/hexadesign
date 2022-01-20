@@ -10,6 +10,8 @@ export const initialState = {
   project: null,
   showcaseProjectHover: false,
   showcaseProjectId: null,
+  nextProject: [],
+  currentProjectIndex: null,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -93,6 +95,21 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         showcaseProjectHover: !state.showcaseProjectHover,
         showcaseProjectId: action.id
+      }
+    case 'SET_NEXT_PROJECT':
+      return {
+        ...state,
+        nextProject: action.project,
+      }
+    case 'CLEAR_NEXT_PROJECT':
+      return {
+        ...state,
+        nextProject: [],
+      }
+    case 'SET_CURRENT_PROJECT_INDEX':
+      return {
+        ...state,
+        currentProjectIndex: action.index,
       }
     default:
       return state;

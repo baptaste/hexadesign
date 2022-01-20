@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Transition from 'src/containers/Transition'
-import NavState from 'src/containers/NavState'
 import './about.scss'
 import aboutBackground from 'src/assets/images/about-background.jpg'
 
@@ -17,7 +16,6 @@ const About = ({ getArticles, articles, setPrevPath, menuOpen }) => {
     <div className='aboutWrapper flex-column'>
       <img src={aboutBackground} className={menuOpen ? 'aboutBackground background-cover no-opacity' : 'aboutBackground background-cover'} />
       <Transition type='vertical' />
-      <NavState axis='lateral-axis' />
       <h1 className='aboutTitle hero-title second-font'>À propos</h1>
       <section className='aboutContent'>
       {articles.map(({id, attributes}) => (

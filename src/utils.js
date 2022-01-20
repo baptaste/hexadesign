@@ -30,3 +30,7 @@ export function getCategoryThemes(newThemes, array) {
   return newThemes
 }
 
+export const getRandomInt = (min, max) => {
+  return Math.round(Math.random() * (max - min) + min);
+}
+

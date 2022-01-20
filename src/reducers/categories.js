@@ -1,6 +1,7 @@
 export const initialState = {
   categories: [],
-  category: '',
+  categoryPath: '',
+  nextCategory: null,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -14,6 +15,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         categories: [],
+      }
+    case 'SET_CURRENT_CATEGORY':
+      return {
+        ...state,
+        categoryPath: action.path,
+      }
+    case 'SET_NEXT_CATEGORY':
+      return {
+        ...state,
+        nextCategory: action.category,
       }
     default:
       return state;

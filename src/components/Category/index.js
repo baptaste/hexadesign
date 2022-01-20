@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import List from 'src/containers/List'
 import { getCategoryName, getCategoryThemes } from 'src/utils'
 import Transition from 'src/containers/Transition'
-import NavState from 'src/containers/NavState'
 
 import './category.scss'
 
@@ -15,12 +14,15 @@ const Category = ({
   filteredProjects,
   clearFilteredProjects,
   filteredTheme,
-  prevPath }) => {
+  prevPath,
+  setCurrentCategory
+ }) => {
 
   const { pathname } = useLocation();
 
   useEffect(() => {
     getCategoryProjects();
+    setCurrentCategory(pathname);
   }, [pathname]);
 
   let categoryName = getCategoryName(categoryName, categories, pathname),
@@ -28,7 +30,7 @@ const Category = ({
 
   return (
     <div className='categoryWrapper flex-column-around'>
-      <NavState axis='lateral-axis' />
+
       {prevPath === '/' && <Transition type='vertical' />}
 
       <div className='categoryHeading text-center' style={{marginBottom: currentThemes[0] !== undefined ? '12rem' : '5rem'}}>
